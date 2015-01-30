@@ -1,4 +1,4 @@
-# Piwam
+# Piwam [![Code Climate](https://codeclimate.com/github/cyrilsuzat/piwam/badges/gpa.svg)](https://codeclimate.com/github/cyrilsuzat/piwam) [![Codeship Status for cyrilsuzat/piwam](https://www.codeship.io/projects/62723860-8af0-0132-7b36-76c1126cf0b3/status)](https://www.codeship.io/projects/60206)
 Gestionnaire d'association en Ruby on Rails.
 
 
