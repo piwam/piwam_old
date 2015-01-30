@@ -1,0 +1,49 @@
+label {
+  margin: 0;
+}
+
+input[type="text"],
+input[type="password"] {
+  font-size: 11px;
+  border: 1px solid #aaa;
+  padding: 3px 4px;
+  width: 98%;
+}
+
+select {
+  font-size: 11px;
+  width: 99%;
+  background-color: #fff;
+  &.date-day {
+    width: 45px;
+  }
+  &.date-month {
+    width: 45px;
+  }
+  &.date-year {
+    width: 60px;
+  }
+}
+
+textarea {
+  font-size: 11px;
+  border: 1px solid #aaa;
+  resize: none;
+  width: 98%;
+}
+
+.form-inline {
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background-color: #eee;
+  padding: 10px;
+  margin-bottom: 10px;
+  input[type="text"] {
+    border: 1px solid #aaa;
+    font-size: 12px;
+    padding: 2px 4px;
+    background-color: #fff;
+    width: 100%;
+  }
+}

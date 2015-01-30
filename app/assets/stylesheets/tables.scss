@@ -1,0 +1,97 @@
+.table {
+  width: 95%;
+  border-collapse: separate;
+  border-spacing: 2px;
+  margin-bottom: 15px;
+  
+  tbody > tr > th {
+    background-color: #eeeeff;
+    color: #888;
+    text-align: left;
+    padding: 10px;
+    vertical-align: top;
+    border: none;
+    line-height: 15px;
+    a {
+      color: #888;
+      text-decoration: underline;
+      &:hover {
+        color: #888;
+        text-decoration: none;
+      }
+    }
+  }
+
+  tbody > tr > td {
+    font-size: 12px;
+    color: #162027;
+    padding: 1px 5px;
+    vertical-align: middle;
+    border: none;
+    a.block {
+      display: block;
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
+.table-bordered {
+  width: 90%;
+  border: 1px solid #000;
+
+  tbody > tr > th {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 0;
+    a {
+      color: #fff;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  tbody > tr > td {
+    font-size: 11px;
+  }
+}
+
+.table-dotted {
+  width: 400px; 
+
+  tbody > tr > th {
+    color: #000;
+    text-align: left;
+    vertical-align: middle;
+    padding: 5px;
+    border-bottom: 1px dotted #000;
+  }
+
+  tbody > tr > td {
+    border-bottom: 1px dotted #000;
+  }
+}
+
+.table > tbody > tr > td.success,
+.table > tbody > tr.success > td {
+  background-color: #c2fcc3;
+}
+.table > tbody > tr > td.warning,
+.table > tbody > tr.warning > td {
+  background-color: #e6e0d1;
+}
+.table > tbody > tr > td.danger,
+.table > tbody > tr.danger > td {
+  background-color: #eecebe;
+}
+.table-hover > tbody > tr:hover,
+.table-hover > tbody > tr:hover > td.success,
+.table-hover > tbody > tr:hover > td.warning,
+.table-hover > tbody > tr:hover > td.danger,
+.table-hover > tbody > tr.success:hover > td,
+.table-hover > tbody > tr.warning:hover > td,
+.table-hover > tbody > tr.danger:hover > td {
+  background-color: #e8fd98;
+}

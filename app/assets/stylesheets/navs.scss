@@ -1,0 +1,57 @@
+.nav-stacked {
+  padding: 0 10px;
+  li {
+    a {
+      padding: 1px 2px;
+      color: #999;
+      &:hover {
+        color: #000;
+        background: inherit;
+      }
+    }
+    +li {
+      margin-top: 0;
+    }
+  }
+}
+
+.nav-tabs {
+  border-bottom: none;
+  margin-top: 10px;
+}
+
+.nav-tabs > li {
+  margin-bottom: 0;
+}
+
+.nav-tabs > li > a {
+  background-color: #eee;
+  margin: 2px;
+  line-height: 16px;
+  font-size: 15px;
+  color: #555;
+  border: none;
+  border-radius: 0;
+  padding: 11px 10px;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #1a4461;
+  cursor: pointer;
+  background-color: #99e2ff;
+  border: none;
+}
+
+.tab-pane {
+  width: 95%;
+  background-color: #fefefe;
+  border: 1px solid #dedeff;
+  padding: 20px;
+  float: left;
+  margin-bottom: 10px;
+  h2 {
+    margin-top: 0;
+  }
+}

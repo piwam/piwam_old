@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Piwam</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Piwam</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      
+      <h1>Piwam</h1>
 
-<%= yield %>
+      <div class="row">
+        <div class="col-xs-3">
 
-</body>
+          <div id="sidebar">
+            <ul class="nav nav-stacked">
+              <li><h4>Configuration</h4></li>
+              <li><%= link_to "A propos de l'association", '#' %></li>
+              <li><%= link_to 'Préférences Piwam', '#' %></li>
+              <li><h4>Membres</h4></li>
+              <li><%= link_to 'Gestion des membres', '#' %></li>
+              <li><%= link_to 'Situation géographique', '#' %></li>
+              <li><%= link_to 'Trombinoscope', '#' %></li>
+              <li><%= link_to 'Gérer les statuts', '#' %></li>
+              <li><h4>Cotisations</h4></li>
+              <li><%= link_to 'Gérer les cotisations', '#' %></li>
+              <li><%= link_to 'Types de cotisation', '#' %></li>
+              <li><h4>Comptabilité</h4></li>
+              <li><%= link_to 'Gestion des activités', '#' %></li>
+              <li><%= link_to 'Gestion des comptes', '#' %></li>
+              <li><%= link_to 'Gestion des dépenses', '#' %></li>
+              <li><%= link_to 'Gestion des recettes', '#' %></li>
+              <li><%= link_to 'Voir les bilans', '#' %></li>
+              <li><h4>Fonctionnalités</h4></li>
+              <li><%= link_to 'Déconnexion', '#' %></li>
+              <li><%= link_to 'Exporter les données', '#' %></li>
+              <li><%= link_to 'Mailing', '#' %></li>
+              <li><%= link_to 'Rapporter un bug', '#' %></li>
+              <li><%= link_to 'Installation', '#' %></li>
+              <li><%= link_to 'Mise à jour', '#' %></li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="col-xs-9">
+
+          <div id="content">
+            <%= yield %>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </body>
 </html>

@@ -1,0 +1,41 @@
+.panel {
+  width: 97%;
+  border-color: #dedeff;
+  border-radius: 0;
+  padding: 2px;
+  margin-bottom: 10px;
+  
+  .panel-heading {
+    color: #555;
+    background-color: #ddd;
+    border: none;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 1px 2px;
+  }
+
+  .panel-body {
+    padding: 20px;
+    p {
+      margin: 0;
+    }
+    ul {
+      padding-left: 15px;
+      margin-bottom: 0;
+      li {
+        line-height: 14px;
+      }
+    }
+  }
+}
+
+.panel-info {
+  width: 200px;
+  border-color: #999;
+  .panel-body {
+    padding: 0;
+    p {
+      margin-top: 2px;
+    }
+  }
+}
