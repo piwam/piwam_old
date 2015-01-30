@@ -1,0 +1,142 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#profile" data-toggle="tab">Profil</a></li>
+  <li><a href="#memberships" data-toggle="tab">Cotisations</a></li>
+  <li><a href="#permissions" data-toggle="tab">Droits</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+  <!-- Profile -->
+  <div class="tab-pane active" id="profile">
+    <h2>Informations détaillées <%= link_to image_tag('edit.png'), edit_member_path(@member) %></h2>
+    <table class="table table-dotted">
+      <tr>
+        <th width="170">Photo :</th>
+        <td><%= image_tag 'no_picture.png' %></td>
+      </tr>
+      <tr>
+        <th>Nom :</th>
+        <td><%= @member.last_name %></td>
+      </tr>
+      <tr>
+        <th>Prénom :</th>
+        <td><%= @member.first_name %></td>
+      </tr>
+      <tr>
+        <th>Email :</th>
+        <td><%= @member.email %></td>
+      </tr>
+      <tr>
+        <th>Statut :</th>
+        <td><%= @member.status_id %></td>
+      </tr>
+      <tr>
+        <th>Date d'inscription :</th>
+        <td><%= @member.registered_on %></td>
+      </tr>
+      <tr>
+        <th>Exempté de cotisation :</th>
+        <td><%= image_tag @member.exempt_of_contributions ? 'state_ok.png' : 'state_ko.png' %></td>
+      </tr>
+      <tr>
+        <th>Adresse :</th>
+        <td><%= @member.street %></td>
+      </tr>
+      <tr>
+        <th>Pays :</th>
+        <td><%= image_tag "flags/#{@member.country}.png" if @member.country %></td>
+      </tr>
+      <tr>
+        <th>Email :</th>
+        <td><%= @member.email %></td>
+      </tr>
+      <tr>
+        <th>Site Internet :</th>
+        <td><%= @member.website %></td>
+      </tr>
+      <tr>
+        <th>Téléphone fixe :</th>
+        <td><%= @member.phone_number %></td>
+      </tr>
+      <tr>
+        <th>Téléphone portable :</th>
+        <td><%= @member.mobile_number %></td>
+      </tr>
+      <tr>
+        <th>Actif :</th>
+        <td><%= image_tag @member.active ? 'state_ok.png' : 'state_ko.png' %></td>
+      </tr>
+      <tr>
+        <th><%= image_tag 'time.png' %> Enregistré le :</th>
+        <td><%= @member.created_at %> par <%= link_to @member.created_by, '#' %></td>
+      </tr>
+      <tr>
+        <th><%= image_tag 'time.png' %> Dernière édition :</th>
+        <td><%= @member.updated_at %> par <%= link_to @member.updated_by, '#' %></td>
+      </tr>
+    </table>
+    <%= link_to 'Éditer', edit_member_path(@member), class: 'btn-action' %>
+  </div>
+  
+  <!-- Memberships -->
+  <div class="tab-pane" id="memberships">
+    <h2>Liste des cotisations</h2>
+    <div class="panel">
+      <div class="panel-body">
+        Cotisation annuelle 2015 versée le 2015-01-21<br>
+        Cotisation annuelle 2015 versée le 2015-01-23
+      </div>
+    </div>
+  </div>
+
+  <!-- Permissions -->
+  <div class="tab-pane" id="permissions">
+    <h2>Droits de l'utilisateur <%= link_to image_tag('edit.png'), edit_member_path(@member) %></h2>
+    <div class="panel">
+      <div class="panel-body">
+        <ul>
+          <li>Éditer et configurer l'association</li>
+          <li>Utiliser l'outil de mailing</li>
+          <li>Utiliser l'outil d'export</li>
+          <li>Voir les bilans</li>
+          <li>Enregistrer une activité</li>
+          <li>Éditer une activité</li>
+          <li>Supprimer une activité</li>
+          <li>Lister les activités</li>
+          <li>Voir les détails d'une activités</li>
+          <li>Enregistrer un membre</li>
+          <li>Éditer un membre</li>
+          <li>Supprimer un membre</li>
+          <li>Lister les membres</li>
+          <li>Afficher les détails d'un membre</li>
+          <li>Ajouter un statut</li>
+          <li>Éditer un statut</li>
+          <li>Supprimer un statut</li>
+          <li>Lister les statuts</li>
+          <li>Enregistrer une cotisation</li>
+          <li>Éditer une cotisation</li>
+          <li>Supprimer une cotisation</li>
+          <li>Lister les cotisations</li>
+          <li>Gérer les types de cotisations</li>
+          <li>Enregistrer un compte</li>
+          <li>Éditer un compte</li>
+          <li>Supprimer un compte</li>
+          <li>Lister les comptes</li>
+          <li>Enregistrer une recette</li>
+          <li>Éditer une recette</li>
+          <li>Supprimer une recette</li>
+          <li>Lister les recettes</li>
+          <li>Enregistrer une dépense</li>
+          <li>Éditer une dépense</li>
+          <li>Supprimer une dépense</li>
+          <li>Lister les dépenses</li>
+          <li>Gérer les droits</li>
+          <li>Mettre à jour Piwam</li>
+          <li>Éditer les préférences</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<%= form_for(@member) do |f| %>
+  <%= render 'application/error_messages', target: @member %>
+
+  <table class="table" style="width:390px;">
+    <tr>
+      <th width="170"><%= f.label :last_name %>*</th>
+      <td><%= f.text_field :last_name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :first_name %>*</th>
+      <td><%= f.text_field :first_name %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :email %></th>
+      <td><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :password %></th>
+      <td><%= f.password_field :password %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :status_id %></th>
+      <td><%= f.text_field :status_id %></td>
+    </tr>
+    <tr>
+      <th><label>Photo</label></th>
+      <td>
+        <div class="btn-upload">
+          <span>Choisir...</span>
+          <input type="file">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :registered_on %></th>
+      <td><%= f.text_field :registered_on %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :exempt_of_contributions %></th>
+      <td><%= f.check_box :exempt_of_contributions %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :street %></th>
+      <td><%= f.text_field :street %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :postal_code %></th>
+      <td><%= f.text_field :postal_code %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :city %></th>
+      <td><%= f.text_field :city %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :country %></th>
+      <td><%= f.text_field :country %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :website %></th>
+      <td><%= f.text_field :website %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :phone_number %></th>
+      <td><%= f.text_field :phone_number %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :mobile_phone %></th>
+      <td><%= f.text_field :mobile_number %></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= link_to 'Annuler', members_path, class: 'btn-action' %>
+        <%= link_to 'Supprimer', @member, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: 'btn-action' unless @member.new_record? %>
+        <%= f.submit 'Sauvegarder', class: 'btn-submit' %>
+      </td>
+    </tr>
+  </table>
+<% end %>

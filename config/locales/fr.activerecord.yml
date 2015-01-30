@@ -1,0 +1,20 @@
+fr:
+  activerecord:
+    models:
+      member: "Membre"
+    attributes:
+      member:
+        city: "Ville"
+        country: "Pays"
+        email: "Email"
+        exempt_of_contributions: "Exempté de cotisation"
+        first_name: "Prénom"
+        last_name: "Nom"
+        mobile_number: "Téléphone portable"
+        password: "Mot de passe"
+        postal_code: "Code postal"
+        phone_number: "Téléphone fixe"
+        registered_on: "Date d'inscription"
+        status: "Statut"
+        street: "Rue"
+        website: "Site internet"

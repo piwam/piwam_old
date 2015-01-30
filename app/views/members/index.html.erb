@@ -1,0 +1,46 @@
+<h2>Liste des membres</h2>
+
+<form class="form-inline">
+  <div class="form-group">
+    <input type="text">
+  </div>
+  <input type="submit" value="rechercher" class="btn-submit">
+</form>
+
+<table class="table table-bordered table-hover">
+  <tr>
+    <th><a href="#">Nom</a></th>
+    <th><a href="#">Prénom</a></th>
+    <th><a href="#">Email</a></th>
+    <th><a href="#">Statut</a></th>
+    <th><a href="#">Ville</a></th>
+    <th width="80">Actions</th>
+  </tr>
+  <% @members.each do |member| %>
+    <tr>
+      <td><%= member.last_name %></td>
+      <td><%= member.first_name %></td>
+      <td><%= member.email %></td>
+      <td><%= member.status_id %></td>
+      <td><%= member.city %></td>
+      <td>
+        <%= mail_to image_tag('mail.png'), member.email %>
+        <%= link_to image_tag('edit.png'), edit_member_path(member) %>
+        <%= link_to image_tag('details.png'), member %>
+        <%= link_to image_tag('delete.png'), member, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<!-- Legend -->
+<div class="panel panel-info">
+  <div class="panel-heading">Légende</div>
+  <div class="panel-body">
+    <p><span style="display: inline-block; width: 24px; height: 17px; background-color: #e6e0d1;">&nbsp;</span> Cotisation non à jour</p>
+    <p><span style="display: inline-block; width: 24px; height: 17px; background-color: #fff; border: 1px solid #bbb;">&nbsp;</span> Cotisation à jour</p>
+  </div>
+</div>
+
+<a href="<%= new_member_path %>" class="btn"><%= image_tag('add.png') %> Enregistrer un membre</a>
+

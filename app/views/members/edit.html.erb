@@ -1,0 +1,219 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#profile" data-toggle="tab">Profil du membre</a></li>
+  <li><a href="#permissions" data-toggle="tab">Gestion des droits</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+  <!-- Profile -->
+  <div class="tab-pane active" id="profile">
+    <h2>Editer les informations</h2>
+    <%= render 'form' %>
+  </div>
+
+  <!-- Permissions -->
+  <div class="tab-pane" id="permissions">
+    <h2>Gérer les droits</h2>
+    <form>
+      <table class="table" style="width:390px;">
+        <tr>
+          <td><h3>Association</h3></td>
+          <td><%= image_tag 'arrow_down.png' %> <a href="#">tout cocher</a></td>
+        </tr>
+        <tr>
+          <th width="240"><label>Éditer et configurer l'association</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Éditer et configurer l'association</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Utiliser l'outil de mailing</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Utiliser l'outil d'export</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Voir les bilans</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td><h3>Membre</h3></td>
+          <td><%= image_tag 'arrow_down.png' %> <a href="#">tout cocher</a></td>
+        </tr>
+          <th><label>Enregistrer un membre</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Éditer un membre</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Supprimer un membre</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Lister les membres</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Afficher les détails d'un membre</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Gérer les droits</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td><h3>Compte</h3></td>
+          <td><%= image_tag 'arrow_down.png' %> <a href="#">tout cocher</a></td>
+        </tr>
+        <tr>
+          <th><label>Enregistrer un compte</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Éditer un compte</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Supprimer un compte</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Lister les comptes</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td><h3>Activité</h3></td>
+          <td><%= image_tag 'arrow_down.png' %> <a href="#">tout cocher</a></td>
+        </tr>
+          <th><label>Enregistrer une activité</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Éditer une activité</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Supprimer une activité</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Lister les activités</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Voir les détails d'une activités</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td><h3>Dépense</h3></td>
+          <td><%= image_tag 'arrow_down.png' %> <a href="#">tout cocher</a></td>
+        </tr>
+        <tr>
+          <th><label>Enregistrer une dépense</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Éditer une dépense</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Supprimer une dépense</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Lister les dépenses</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td><h3>Recette</h3></td>
+          <td><%= image_tag 'arrow_down.png' %> <a href="#">tout cocher</a></td>
+        </tr>
+        <tr>
+          <th><label>Enregistrer une recette</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Éditer une recette</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Supprimer une recette</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Lister les recettes</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td><h3>Cotisations</h3></td>
+          <td><%= image_tag 'arrow_down.png' %> <a href="#">tout cocher</a></td>
+        </tr>
+        <tr>
+          <th><label>Enregistrer une cotisation</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Éditer une cotisation</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Supprimer une cotisation</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Lister les cotisations</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Gérer les types de cotisations</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td><h3>Statuts</h3></td>
+          <td><%= image_tag 'arrow_down.png' %> <a href="#">tout cocher</a></td>
+        </tr>
+        <tr>
+          <th><label>Ajouter un statut</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Éditer un statut</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Supprimer un statut</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Lister les statuts</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td><h3>Piwam</h3></td>
+          <td><%= image_tag 'arrow_down.png' %> <a href="#">tout cocher</a></td>
+        </tr>
+        <tr>
+          <th><label>Mettre à jour Piwam</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <th><label>Éditer les préférences</label></th>
+          <td><input type="checkbox"></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="submit" class="btn-submit" value="Sauvegarder">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</div>
