@@ -16,6 +16,7 @@ group :development, :test do
   gem 'byebug'
   gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'quiet_assets'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'spring'
   gem 'web-console', '~> 2.0'
