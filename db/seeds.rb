@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Members
-20.times { FactoryGirl.create(:member) }
+25.times { FactoryGirl.create(:member) }

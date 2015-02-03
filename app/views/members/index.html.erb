@@ -11,7 +11,6 @@
   <tr>
     <th><a href="#">Nom</a></th>
     <th><a href="#">Prénom</a></th>
-    <th><a href="#">Email</a></th>
     <th><a href="#">Statut</a></th>
     <th><a href="#">Ville</a></th>
     <th width="80">Actions</th>
@@ -20,11 +19,10 @@
     <tr>
       <td><%= member.last_name %></td>
       <td><%= member.first_name %></td>
-      <td><%= member.email %></td>
       <td><%= member.status_id %></td>
       <td><%= member.city %></td>
       <td>
-        <%= mail_to image_tag('mail.png'), member.email %>
+        <%= member.email.present? ? mail_to(member.email, image_tag('mail.png')) : image_tag('no_mail.png') %>
         <%= link_to image_tag('edit.png'), edit_member_path(member) %>
         <%= link_to image_tag('details.png'), member %>
         <%= link_to image_tag('delete.png'), member, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %>
@@ -44,3 +42,4 @@
 
 <a href="<%= new_member_path %>" class="btn"><%= image_tag('add.png') %> Enregistrer un membre</a>
 
+<%= paginate @members %>
