@@ -1,0 +1,1 @@
+Settings.defaults[:items_per_page] = 20
