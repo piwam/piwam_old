@@ -3,23 +3,23 @@
 <%= form_tag settings_path do %>
   <table class="table">
     <tr>
-      <th width="155"><%= label_tag :items_per_page, t('settings.items_per_page') %></th>
+      <th width="155"><%= label_tag :settings_items_per_page, t('settings.items_per_page') %></th>
       <td>
-        <%= text_field_tag :items_per_page, Settings.items_per_page, style: 'width: 90px;' %>
+        <%= text_field_tag 'settings[items_per_page]', Settings.items_per_page, style: 'width: 90px;' %>
         <%= image_tag 'tooltip_icon.gif', data: { toggle: 'popover', content: 'Nombre de résultats à afficher par page dans les listings.' } %>
       </td>
     </tr>
     <tr>
-      <th><%= label_tag :sender_address, t('settings.sender_address') %></th>
+      <th><%= label_tag :settings_sender_address, t('settings.sender_address') %></th>
       <td>
-        <%= text_field_tag :sender_address, Settings.sender_address, style: 'width: 210px;' %>
+        <%= text_field_tag 'settings[sender_address]', Settings.sender_address, style: 'width: 210px;' %>
         <%= image_tag 'tooltip_icon.gif', data: { toggle: 'popover', content: 'Les emails envoyés apparaîtront comme expédiés avec cette adresse.' } %>
       </td>
     </tr>
     <tr>
-      <th><%= label_tag :google_map_api_key, t('settings.google_map_api_key') %></th>
+      <th><%= label_tag :settings_google_map_api_key, t('settings.google_map_api_key') %></th>
       <td>
-        <%= text_field_tag :google_map_api_key, Settings.google_map_api_key, style: 'width: 210px;' %>
+        <%= text_field_tag 'settings[google_map_api_key]', Settings.google_map_api_key, style: 'width: 210px;' %>
         <%= image_tag 'tooltip_icon.gif', data: { toggle: 'popover', content: 'Clé utilisée pour accéder à Google Map. Générez la votre sur developers.google.com.' } %>
       </td>
     </tr>

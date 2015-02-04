@@ -4,11 +4,17 @@ class SettingsController < ApplicationController
   end
 
   def update
-    Settings.items_per_page     = params[:items_per_page]
-    Settings.sender_address     = params[:sender_address]
-    Settings.google_map_api_key = params[:google_map_api_key]
+    settings_params.each do |var, value|
+      Settings[var] = value
+    end
 
     redirect_to settings_url, notice: 'Les préférences ont bien été prises en compte.'
   end
+
+  private
+
+    def settings_params
+      params.require(:settings).permit(:items_per_page, :sender_address, :google_map_api_key)
+    end
 
 end

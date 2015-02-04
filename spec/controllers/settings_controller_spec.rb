@@ -3,9 +3,14 @@ require 'rails_helper'
 describe SettingsController do
 
   describe "POST update" do
-    it "updates settings" do
-      post :update, { items_per_page: 15 }
+    it "updates valid settings" do
+      post :update, { settings: { items_per_page: 15 } }
       expect(Settings.items_per_page).to eq('15')
+    end
+
+    it "does not update invalid settings" do
+      post :update, { settings: { unknown_setting: 'Foo' } }
+      expect(Settings.unknown_setting).to be_nil
     end
   end
 
