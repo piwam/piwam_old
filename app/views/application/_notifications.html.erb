@@ -1,0 +1,5 @@
+<% flash.each do |kind, message| %>
+  <div class="alert alert-<%= kind == 'notice' ? 'success' : 'danger' %>">
+    <%= message %>
+  </div>
+<% end %>
