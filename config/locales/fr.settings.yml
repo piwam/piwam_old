@@ -1,0 +1,5 @@
+fr:
+  settings:
+    google_map_api_key: "Clé Google Map"
+    items_per_page:     "Elements par page"
+    sender_address:     "Adresse expéditeur"
