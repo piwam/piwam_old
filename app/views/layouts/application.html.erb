@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       
-      <h1>Piwam</h1>
+      <h1><%= Settings.association_name.present? ? Settings.association_name : 'Piwam' %></h1>
 
       <div class="row">
         <div class="col-xs-3">
@@ -17,7 +17,7 @@
           <div id="sidebar">
             <ul class="nav nav-stacked">
               <li><h4>Configuration</h4></li>
-              <li><%= link_to "A propos de l'association", '#' %></li>
+              <li><%= link_to "A propos de l'association", association_path %></li>
               <li><%= link_to 'Préférences Piwam', settings_path %></li>
               <li><h4>Membres</h4></li>
               <li><%= link_to 'Gestion des membres', members_path %></li>

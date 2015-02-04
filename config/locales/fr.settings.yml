@@ -1,5 +1,8 @@
 fr:
   settings:
-    google_map_api_key: "Clé Google Map"
-    items_per_page:     "Elements par page"
-    sender_address:     "Adresse expéditeur"
+    association_name:        "Nom de l'association"
+    association_description: "Description"
+    association_website:     "Site web"
+    google_map_api_key:      "Clé Google Map"
+    items_per_page:          "Elements par page"
+    sender_address:          "Adresse expéditeur"

@@ -3,6 +3,10 @@ require 'rails_helper'
 describe SettingsController do
 
   describe "POST update" do
+    before(:each) do
+      request.env["HTTP_REFERER"] = settings_path
+    end
+
     it "updates valid settings" do
       post :update, { settings: { items_per_page: 15 } }
       expect(Settings.items_per_page).to eq('15')

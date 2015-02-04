@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   resources :members
   
   # Settings
-  get  'settings', to: 'settings#index'
-  post 'settings', to: 'settings#update'
+  get  'association', to: 'settings#association'
+  get  'settings',    to: 'settings#index'
+  post 'settings',    to: 'settings#update'
 
   root 'members#index'
 
