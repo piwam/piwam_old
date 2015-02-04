@@ -1,18 +1,18 @@
 <h2>Liste des membres</h2>
 
-<form class="form-inline">
+<%= search_form_for @q, class: 'form-inline' do |f| %>
   <div class="form-group">
-    <input type="text">
+    <%= f.search_field :first_name_or_last_name_start %>
   </div>
-  <input type="submit" value="rechercher" class="btn-submit">
-</form>
+  <%= f.submit 'rechercher', class: 'btn-submit' %>
+<% end %>
 
 <table class="table table-bordered table-hover">
   <tr>
-    <th><a href="#">Nom</a></th>
-    <th><a href="#">Prénom</a></th>
-    <th><a href="#">Statut</a></th>
-    <th><a href="#">Ville</a></th>
+    <th><%= sort_link @q, :last_name %></th>
+    <th><%= sort_link @q, :first_name %></th>
+    <th><%= sort_link @q, :status_id %></th>
+    <th><%= sort_link @q, :city %></th>
     <th width="80">Actions</th>
   </tr>
   <% @members.each do |member| %>

@@ -2,7 +2,8 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
-    @members = Member.page(params[:page]).per(Settings.items_per_page)
+    @q = Member.ransack(params[:q])
+    @members = @q.result.page(params[:page]).per(Settings.items_per_page)
   end
 
   def show

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe "members/index" do
   before(:each) do
+    assign(:q, Member.ransack(nil))
     assign(:members, Kaminari.paginate_array([
       FactoryGirl.create(:member, last_name: 'Doe', first_name: 'John'),
       FactoryGirl.create(:member, last_name: 'Doe', first_name: 'Jane')

@@ -15,6 +15,6 @@ fr:
         postal_code: "Code postal"
         phone_number: "Téléphone fixe"
         registered_on: "Date d'inscription"
-        status: "Statut"
+        status_id: "Statut"
         street: "Rue"
         website: "Site internet"
