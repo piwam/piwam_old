@@ -19,7 +19,7 @@ describe "members/edit" do
       assert_select "input#member_street[name=?]", "member[street]"
       assert_select "input#member_postal_code[name=?]", "member[postal_code]"
       assert_select "input#member_city[name=?]", "member[city]"
-      assert_select "input#member_country[name=?]", "member[country]"
+      assert_select "select#member_country[name=?]", "member[country]"
       assert_select "input#member_website[name=?]", "member[website]"
       assert_select "input#member_phone_number[name=?]", "member[phone_number]"
       assert_select "input#member_mobile_number[name=?]", "member[mobile_number]"

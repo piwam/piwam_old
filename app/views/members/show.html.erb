@@ -46,7 +46,7 @@
       </tr>
       <tr>
         <th>Pays :</th>
-        <td><%= image_tag "flags/#{@member.country}.png" if @member.country %></td>
+        <td><%= image_tag "flags/#{@member.country.downcase}.png" if @member.country %></td>
       </tr>
       <tr>
         <th>Email :</th>

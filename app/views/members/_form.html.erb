@@ -53,7 +53,7 @@
     </tr>
     <tr>
       <th><%= f.label :country %></th>
-      <td><%= f.text_field :country %></td>
+      <td><%= f.country_select :country, selected: (@member.country || Settings.default_country), priority_countries: %w(FR CH BE), include_blank: true %></td>
     </tr>
     <tr>
       <th><%= f.label :website %></th>

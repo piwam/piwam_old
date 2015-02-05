@@ -17,7 +17,7 @@ class SettingsController < ApplicationController
   private
 
     def settings_params
-      params.require(:settings).permit(:items_per_page, :sender_address, :google_map_api_key, :association_name, :association_description, :association_website)
+      params.require(:settings).permit(:items_per_page, :default_country, :sender_address, :google_map_api_key, :association_name, :association_description, :association_website)
     end
 
 end
