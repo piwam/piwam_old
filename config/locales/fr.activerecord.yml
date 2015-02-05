@@ -2,6 +2,7 @@ fr:
   activerecord:
     models:
       member: "Membre"
+
     attributes:
       member:
         city: "Ville"
@@ -14,6 +15,8 @@ fr:
         password: "Mot de passe"
         postal_code: "Code postal"
         phone_number: "Téléphone fixe"
+        photo: "Photo"
+        photo_file_size: "Taille de la photo"
         registered_on: "Date d'inscription"
         status_id: "Statut"
         street: "Rue"

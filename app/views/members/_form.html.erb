@@ -1,4 +1,4 @@
-<%= form_for(@member) do |f| %>
+<%= form_for @member, html: { multipart: true } do |f| %>
   <%= render 'application/error_messages', target: @member %>
 
   <table class="table" style="width:390px;">
@@ -23,11 +23,11 @@
       <td><%= f.text_field :status_id %></td>
     </tr>
     <tr>
-      <th><label>Photo</label></th>
+      <th><%= f.label :photo %></th>
       <td>
         <div class="btn-upload">
           <span>Choisir...</span>
-          <input type="file">
+          <%= f.file_field :photo %>
         </div>
       </td>
     </tr>

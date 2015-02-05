@@ -14,13 +14,17 @@
 ActiveRecord::Schema.define(version: 20150204152809) do
 
   create_table "members", force: :cascade do |t|
-    t.string   "last_name",               limit: 255,                null: false
-    t.string   "first_name",              limit: 255,                null: false
+    t.string   "last_name",               limit: 255,                 null: false
+    t.string   "first_name",              limit: 255,                 null: false
     t.string   "email",                   limit: 255
     t.string   "password_digest",         limit: 255
     t.integer  "status_id",               limit: 4
+    t.string   "photo_file_name",         limit: 255
+    t.string   "photo_content_type",      limit: 255
+    t.integer  "photo_file_size",         limit: 4
+    t.datetime "photo_updated_at"
     t.date     "registered_on"
-    t.boolean  "exempt_of_contributions", limit: 1
+    t.boolean  "exempt_of_contributions", limit: 1,   default: false
     t.string   "street",                  limit: 255
     t.string   "postal_code",             limit: 255
     t.string   "city",                    limit: 255
@@ -31,8 +35,8 @@ ActiveRecord::Schema.define(version: 20150204152809) do
     t.boolean  "active",                  limit: 1,   default: true
     t.integer  "created_by",              limit: 4
     t.integer  "updated_by",              limit: 4
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
   create_table "settings", force: :cascade do |t|
