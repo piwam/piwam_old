@@ -8,7 +8,7 @@ class SettingsController < ApplicationController
 
   def update
     settings_params.each do |var, value|
-      Settings[var] = value
+      Setting[var] = value
     end
     
     redirect_to :back, notice: 'Les préférences ont bien été prises en compte.'

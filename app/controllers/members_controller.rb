@@ -3,7 +3,7 @@ class MembersController < ApplicationController
 
   def index
     @q = Member.ransack(params[:q])
-    @members = @q.result.page(params[:page]).per(Settings.items_per_page)
+    @members = @q.result.page(params[:page]).per(Setting.items_per_page)
   end
 
   def show

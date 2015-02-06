@@ -4,15 +4,15 @@
   <table class="table" style="width: 540px;">
     <tr>
       <th width="165"><%= label_tag :settings_association_name, t('settings.association_name') %></th>
-      <td><%= text_field_tag 'settings[association_name]', Settings.association_name %></td>
+      <td><%= text_field_tag 'settings[association_name]', Setting.association_name %></td>
     </tr>
     <tr>
       <th><%= label_tag :settings_association_description, t('settings.association_description') %></th>
-      <td><%= text_area_tag 'settings[association_description]', Settings.association_description, rows: 5 %></td>
+      <td><%= text_area_tag 'settings[association_description]', Setting.association_description, rows: 5 %></td>
     </tr>
     <tr>
       <th><%= label_tag :settings_association_website, t('settings.association_website') %></th>
-      <td><%= text_field_tag 'settings[association_website]', Settings.association_website %></td>
+      <td><%= text_field_tag 'settings[association_website]', Setting.association_website %></td>
     </tr>
     <tr>
       <td></td>

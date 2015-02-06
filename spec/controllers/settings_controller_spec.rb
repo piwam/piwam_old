@@ -9,12 +9,12 @@ describe SettingsController do
 
     it "updates valid settings" do
       post :update, { settings: { items_per_page: 15 } }
-      expect(Settings.items_per_page).to eq('15')
+      expect(Setting.items_per_page).to eq('15')
     end
 
     it "does not update invalid settings" do
       post :update, { settings: { unknown_setting: 'Foo' } }
-      expect(Settings.unknown_setting).to be_nil
+      expect(Setting.unknown_setting).to be_nil
     end
   end
 
