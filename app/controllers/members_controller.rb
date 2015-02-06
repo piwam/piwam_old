@@ -17,7 +17,7 @@ class MembersController < ApplicationController
   end
 
   def create
-    @member = Member.new(member_params)
+    @member = Member.new(member_params.merge(created_by: @current_member.id, updated_by: @current_member.id))
 
     if @member.save
       redirect_to @member
@@ -27,7 +27,7 @@ class MembersController < ApplicationController
   end
 
   def update
-    if @member.update(member_params)
+    if @member.update(member_params.merge(updated_by: @current_member.id))
       redirect_to members_url
     else
       render :edit

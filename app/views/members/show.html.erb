@@ -70,11 +70,11 @@
       </tr>
       <tr>
         <th><%= image_tag 'time.png' %> Enregistré le :</th>
-        <td><%= l @member.created_at %> par <%= link_to @member.created_by, '#' %></td>
+        <td><%= l @member.created_at %> par <%= @member.creator ? link_to(@member.creator, @member.creator) : raw('<i>Système</i>') %></td>
       </tr>
       <tr>
         <th><%= image_tag 'time.png' %> Dernière édition :</th>
-        <td><%= l @member.updated_at %> par <%= link_to @member.updated_by, '#' %></td>
+        <td><%= l @member.updated_at %> par <%= @member.updater ? link_to(@member.updater, @member.updater) : raw('<i>Système</i>') %></td>
       </tr>
     </table>
     <%= link_to 'Éditer', edit_member_path(@member), class: 'btn-action' %>

@@ -56,6 +56,12 @@ describe MembersController do
         post :create, {:member => valid_attributes}, valid_session
         expect(response).to redirect_to(Member.last)
       end
+
+      it "saves the creator" do
+        post :create, {:member => valid_attributes}, valid_session
+        expect(assigns(:member).creator).to eq(current_member)
+        expect(assigns(:member).updater).to eq(current_member)
+      end
     end
 
     describe "with invalid params" do
@@ -92,6 +98,11 @@ describe MembersController do
         member = Member.create! valid_attributes
         put :update, {:id => member.to_param, :member => valid_attributes}, valid_session
         expect(response).to redirect_to(members_url)
+      end
+
+      it "saves the updater" do
+        post :create, {:member => valid_attributes}, valid_session
+        expect(assigns(:member).updater).to eq(current_member)
       end
     end
 

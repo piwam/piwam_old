@@ -3,6 +3,9 @@ class Member < ActiveRecord::Base
   has_secure_password validations: false
   nilify_blanks
 
+  belongs_to :creator, class_name: 'Member', foreign_key: 'created_by'
+  belongs_to :updater, class_name: 'Member', foreign_key: 'updated_by'
+
   has_attached_file :photo,
                     styles: { original: '116x116#' },
                     url: '/system/:class/:hash.:extension',
@@ -18,5 +21,9 @@ class Member < ActiveRecord::Base
   validates :password, length: { in: 6..20 }, allow_blank: true
 
   COUNTRIES = %w(BE CH DE ES FR LU NL).freeze
+
+  def to_s
+    [first_name, last_name].join(' ')
+  end
 
 end
