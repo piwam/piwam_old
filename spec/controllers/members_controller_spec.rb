@@ -2,15 +2,15 @@ require 'rails_helper'
 
 describe MembersController do
 
+  let(:current_member) { FactoryGirl.create(:member) }
   let(:valid_attributes) { { last_name: 'Doe', first_name: 'John' } }
   let(:invalid_attributes) { { last_name: 'Doe', first_name: nil } }
-  let(:valid_session) { {} }
+  let(:valid_session) { { member_id: current_member.id } }
 
   describe "GET index" do
     it "assigns all members as @members" do
-      member = Member.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:members)).to eq([member])
+      expect(assigns(:members)).to eq([current_member])
     end
   end
 
@@ -40,6 +40,7 @@ describe MembersController do
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Member" do
+        get :new, {}, valid_session
         expect {
           post :create, {:member => valid_attributes}, valid_session
         }.to change(Member, :count).by(1)
@@ -112,6 +113,7 @@ describe MembersController do
   describe "DELETE destroy" do
     it "destroys the requested member" do
       member = Member.create! valid_attributes
+      get :index, {}, valid_session
       expect {
         delete :destroy, {:id => member.to_param}, valid_session
       }.to change(Member, :count).by(-1)

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  # Authentication
+  get  'login',  to: 'sessions#new'
+  post 'login',  to: 'sessions#create'
+  get  'logout', to: 'sessions#destroy'
   
   # Members
   resources :members

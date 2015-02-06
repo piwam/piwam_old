@@ -4,6 +4,7 @@ FactoryGirl.define do
     first_name       { Faker::Name.first_name }
     registered_on    { Faker::Date.backward(15) }
     sequence(:email) { |n| Faker::Internet.safe_email("#{first_name}#{n}") }
+    password         { Faker::Internet.password(6, 20) }
     street           { Faker::Address.street_address }
     postal_code      { Faker::Address.postcode }
     city             { Faker::Address.city }
