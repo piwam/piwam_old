@@ -3,7 +3,7 @@ require 'rails_helper'
 describe MembersController do
 
   let(:current_member) { FactoryGirl.create(:member) }
-  let(:valid_attributes) { { last_name: 'Doe', first_name: 'John' } }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:member) }
   let(:invalid_attributes) { { last_name: 'Doe', first_name: nil } }
   let(:valid_session) { { member_id: current_member.id } }
 

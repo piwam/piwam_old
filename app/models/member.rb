@@ -20,7 +20,7 @@ class Member < ActiveRecord::Base
   validates :email, uniqueness: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, allow_blank: true
   validates :password, length: { in: 6..20 }, allow_blank: true
 
-  with_options if: :first_member? do |member|
+  with_options if: :alone? do |member|
     member.validates :email,    presence: true
     member.validates :password, presence: true
   end
@@ -35,7 +35,7 @@ class Member < ActiveRecord::Base
 
   private
 
-    def first_member?
+    def alone?
       !Member.exists?
     end
 

@@ -13,7 +13,9 @@ describe Member do
     expect(FactoryGirl.build(:member, first_name: nil)).not_to be_valid
   end
 
-  it "is valid without an email" do
+  it "is invalid without an email if alone" do
+    expect(FactoryGirl.build(:member, email: nil)).not_to be_valid
+    FactoryGirl.create(:member)
     expect(FactoryGirl.build(:member, email: nil)).to be_valid
   end
 
