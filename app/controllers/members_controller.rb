@@ -35,6 +35,7 @@ class MembersController < ApplicationController
   end
 
   def destroy
+    session[:member_id] = nil if @member.id == @current_member.id
     @member.destroy
     redirect_to members_url
   end

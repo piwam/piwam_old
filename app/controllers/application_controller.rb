@@ -12,7 +12,9 @@ class ApplicationController < ActionController::Base
   private
 
     def authenticate_member
-      redirect_to login_url unless current_member
+      if current_member.nil?
+        redirect_to Member.any? ? login_url : setup_url
+      end
     end
 
 end

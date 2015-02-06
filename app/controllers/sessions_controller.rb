@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
-  skip_before_action :authenticate_member, only: [:new, :create]
+  skip_before_action :authenticate_member, only: [:new, :create, :destroy]
 
   def new
   end
 
   def create
-    member = Member.find_by(email: params[:email])
+    member = Member.authenticatable.find_by(email: params[:email])
     if member && member.authenticate(params[:password])
       session[:member_id] = member.id
       redirect_to root_url

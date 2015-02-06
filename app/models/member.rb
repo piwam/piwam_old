@@ -20,10 +20,23 @@ class Member < ActiveRecord::Base
   validates :email, uniqueness: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, allow_blank: true
   validates :password, length: { in: 6..20 }, allow_blank: true
 
+  with_options if: :first_member? do |member|
+    member.validates :email,    presence: true
+    member.validates :password, presence: true
+  end
+
+  scope :authenticatable, -> { where.not(email: nil, password_digest: nil) }
+
   COUNTRIES = %w(BE CH DE ES FR LU NL).freeze
 
   def to_s
     [first_name, last_name].join(' ')
   end
+
+  private
+
+    def first_member?
+      !Member.exists?
+    end
 
 end
