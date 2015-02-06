@@ -17,4 +17,6 @@ class Member < ActiveRecord::Base
   validates :email, uniqueness: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, allow_blank: true
   validates :password, length: { in: 6..20 }, allow_blank: true
 
+  COUNTRIES = %w(BE CH DE ES FR LU NL).freeze
+
 end

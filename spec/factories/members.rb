@@ -7,7 +7,7 @@ FactoryGirl.define do
     street           { Faker::Address.street_address }
     postal_code      { Faker::Address.postcode }
     city             { Faker::Address.city }
-    country          { [Faker::Address.default_country, Faker::Address.country].sample }
+    country          { Member::COUNTRIES.sample }
     website          { [Faker::Internet.url, nil].sample }
     phone_number     { [Faker::PhoneNumber.phone_number, nil].sample }
     mobile_number    { [Faker::PhoneNumber.phone_number, nil].sample }    
