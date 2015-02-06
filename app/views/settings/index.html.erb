@@ -10,9 +10,9 @@
       </td>
     </tr>
     <tr>
-      <th><%= label_tag :settings_default_country, t('settings.default_country') %></th>
+      <th><%= label_tag :settings_region, t('settings.region') %></th>
       <td>
-        <%= country_select 'settings', 'default_country', { selected: Settings.default_country }, style: 'width: 210px;' %>
+        <%= country_select 'settings', 'region', { selected: Settings.region }, style: 'width: 210px;' %>
         <%= image_tag 'tooltip_icon.gif', data: { toggle: 'popover', content: 'Pays sélectionné par défaut dans les listes déroulantes.' } %>
       </td>
     </tr>
