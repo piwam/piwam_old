@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get  'logout', to: 'sessions#destroy'
   
   # Members
-  resources :members
+  resources :members do
+    get 'faces', on: :collection
+  end
   
   # Settings
   get  'association', to: 'settings#association'

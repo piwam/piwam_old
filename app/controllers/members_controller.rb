@@ -40,6 +40,10 @@ class MembersController < ApplicationController
     redirect_to members_url
   end
 
+  def faces
+    @members = Member.page(params[:page]).per(Setting.items_per_page)
+  end
+
   private
   
     def set_member
