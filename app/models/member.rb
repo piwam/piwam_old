@@ -6,6 +6,9 @@ class Member < ActiveRecord::Base
   belongs_to :creator, class_name: 'Member', foreign_key: 'created_by'
   belongs_to :updater, class_name: 'Member', foreign_key: 'updated_by'
 
+  geocoded_by      :address
+  after_validation :geocode
+
   has_attached_file :photo,
                     styles: { original: '116x116#' },
                     url: '/system/:class/:hash.:extension',
@@ -31,6 +34,15 @@ class Member < ActiveRecord::Base
 
   def to_s
     [first_name, last_name].join(' ')
+  end
+
+  def address
+    [street, postal_code, city, country_name].join(' ')
+  end
+
+  def country_name
+    c = ISO3166::Country[country]
+    c.translations[I18n.locale.to_s] || c.name
   end
 
   private

@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20150204152809) do
     t.string   "phone_number",            limit: 255
     t.string   "mobile_number",           limit: 255
     t.boolean  "active",                  limit: 1,   default: true
+    t.float    "latitude",                limit: 24
+    t.float    "longitude",               limit: 24
     t.integer  "created_by",              limit: 4
     t.integer  "updated_by",              limit: 4
     t.datetime "created_at",                                          null: false
