@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   
   # Members
   resources :members do
-    get 'faces', on: :collection
+    collection do
+      get 'faces'
+      get 'map'
+    end
   end
   
   # Settings

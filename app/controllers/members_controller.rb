@@ -44,6 +44,10 @@ class MembersController < ApplicationController
     @members = Member.page(params[:page]).per(Setting.items_per_page)
   end
 
+  def map
+    @members = Member.geocoded
+  end
+
   private
   
     def set_member
