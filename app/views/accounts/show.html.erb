@@ -1,0 +1,23 @@
+<h2>Détails du compte <%= @account.reference %></h2>
+
+<table class="table table-dotted" style="width:inherit">
+  <tr>
+    <th width="130">Libellé :</th>
+    <td><%= @account.label %></td>
+  </tr>
+  <tr>
+    <th>Référence :</th>
+    <td><%= @account.reference %></td>
+  </tr>
+  <tr>
+    <th><%= image_tag 'time.png' %> Enregistré le :</th>
+    <td><%= l @account.created_at %> par <%= @account.creator ? link_to(@account.creator, @account.creator) : raw('<i>Système</i>') %></td>
+  </tr>
+  <tr>
+    <th><%= image_tag 'time.png' %> Mise à jour le :</th>
+    <td><%= l @account.updated_at %> par <%= @account.updater ? link_to(@account.updater, @account.updater) : raw('<i>Système</i>') %></td>
+  </tr>
+</table>
+
+<%= link_to 'Éditer', edit_account_path(@account), class: 'btn-action' %>
+<%= link_to 'Retour à la liste', accounts_path, class: 'btn-action' %>
