@@ -7,7 +7,7 @@ class Member < ActiveRecord::Base
   belongs_to :updater, class_name: 'Member', foreign_key: 'updated_by'
 
   geocoded_by      :address
-  after_validation :geocode
+  after_validation :geocode, unless: -> { Rails.env.test? }
 
   has_attached_file :photo,
                     styles: { original: '116x116#' },
