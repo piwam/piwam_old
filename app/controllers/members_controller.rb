@@ -46,6 +46,11 @@ class MembersController < ApplicationController
 
   def map
     @members = Member.geocoded
+    @hash = Gmaps4rails.build_markers(@members) do |member, marker|
+      marker.lat member.latitude
+      marker.lng member.longitude
+      marker.infowindow member.to_s
+    end
   end
 
   private
