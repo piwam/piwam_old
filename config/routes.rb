@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   # Accounts
   resources :accounts
+
+  # Contributions
+  resources :contribution_types, except: :show
   
   # Members
   resources :members do

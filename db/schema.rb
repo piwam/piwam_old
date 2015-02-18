@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101000003) do
+ActiveRecord::Schema.define(version: 20150101000004) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "label",      limit: 255,                null: false
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 20150101000003) do
     t.integer  "updated_by", limit: 4
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "contribution_types", force: :cascade do |t|
+    t.string   "label",               limit: 255,                                        null: false
+    t.date     "expires_on",                                                             null: false
+    t.decimal  "amount",                          precision: 5, scale: 2,                null: false
+    t.integer  "contributions_count", limit: 4,                           default: 0,    null: false
+    t.boolean  "active",              limit: 1,                           default: true
+    t.integer  "created_by",          limit: 4
+    t.integer  "updated_by",          limit: 4
+    t.datetime "created_at",                                                             null: false
+    t.datetime "updated_at",                                                             null: false
   end
 
   create_table "members", force: :cascade do |t|
@@ -42,9 +54,9 @@ ActiveRecord::Schema.define(version: 20150101000003) do
     t.string   "website",                 limit: 255
     t.string   "phone_number",            limit: 255
     t.string   "mobile_number",           limit: 255
-    t.boolean  "active",                  limit: 1,   default: true
     t.float    "latitude",                limit: 24
     t.float    "longitude",               limit: 24
+    t.boolean  "active",                  limit: 1,   default: true
     t.integer  "created_by",              limit: 4
     t.integer  "updated_by",              limit: 4
     t.datetime "created_at",                                          null: false

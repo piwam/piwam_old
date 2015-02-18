@@ -16,9 +16,9 @@ class CreateMembers < ActiveRecord::Migration
       t.string     :website
       t.string     :phone_number
       t.string     :mobile_number
-      t.boolean    :active, default: true
       t.float      :latitude
       t.float      :longitude
+      t.boolean    :active, default: true
       t.integer    :created_by
       t.integer    :updated_by
 

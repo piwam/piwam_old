@@ -8,6 +8,10 @@ fr:
       account:
         label: "Libellé"
         reference: "Référence"
+      contribution_type:
+        amount: "Montant"
+        expires_on: "Expire le"
+        label: "Libellé"
       member:
         city: "Ville"
         country: "Pays"
