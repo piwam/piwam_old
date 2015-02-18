@@ -19,7 +19,7 @@
     <tr>
       <td><%= member.last_name %></td>
       <td><%= member.first_name %></td>
-      <td><%= member.status_id %></td>
+      <td><%= member.status %></td>
       <td><%= member.city %></td>
       <td>
         <%= member.email.present? ? mail_to(member.email, image_tag('mail.png')) : image_tag('no_mail.png') %>

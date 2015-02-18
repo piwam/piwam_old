@@ -13,7 +13,7 @@ describe "members/new" do
       assert_select "input#member_first_name[name=?]", "member[first_name]"
       assert_select "input#member_email[name=?]", "member[email]"
       assert_select "input#member_password[name=?]", "member[password]"
-      assert_select "input#member_status_id[name=?]", "member[status_id]"
+      assert_select "select#member_status_id[name=?]", "member[status_id]"
       assert_select "input#member_registered_on[name=?]", "member[registered_on]"
       assert_select "input#member_exempt_of_contributions[name=?]", "member[exempt_of_contributions]"
       assert_select "input#member_street[name=?]", "member[street]"

@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <th><%= f.label :status_id %></th>
-      <td><%= f.text_field :status_id %></td>
+      <td><%= f.collection_select :status_id, Status.all, :id, :label, include_blank: true %></td>
     </tr>
     <tr>
       <th><%= f.label :photo %></th>

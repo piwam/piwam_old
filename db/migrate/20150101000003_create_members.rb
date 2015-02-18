@@ -5,7 +5,7 @@ class CreateMembers < ActiveRecord::Migration
       t.string     :first_name, null: false
       t.string     :email
       t.string     :password_digest
-      t.integer    :status_id
+      t.references :status, index: true
       t.attachment :photo
       t.date       :registered_on
       t.boolean    :exempt_of_contributions, default: false
@@ -18,11 +18,13 @@ class CreateMembers < ActiveRecord::Migration
       t.string     :mobile_number
       t.float      :latitude
       t.float      :longitude
-      t.boolean    :active, default: true
+      t.boolean    :active, null: false, default: true
       t.integer    :created_by
       t.integer    :updated_by
 
       t.timestamps null: false
     end
+
+    add_foreign_key :members, :statuses
   end
 end

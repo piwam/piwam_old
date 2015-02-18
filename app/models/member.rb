@@ -4,6 +4,7 @@ class Member < ActiveRecord::Base
   nilify_blanks
 
   has_many :contributions
+  belongs_to :status, counter_cache: true
   belongs_to :creator, class_name: 'Member', foreign_key: 'created_by'
   belongs_to :updater, class_name: 'Member', foreign_key: 'updated_by'
 

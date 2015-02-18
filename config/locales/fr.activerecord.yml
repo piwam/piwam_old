@@ -5,6 +5,7 @@ fr:
       contribution: "Cotisation"
       contribution_type: "Type de cotisation"
       member: "Membre"
+      status: "Statut"
 
     attributes:
       account:
@@ -37,3 +38,6 @@ fr:
         status_id: "Statut"
         street: "Rue"
         website: "Site internet"
+      status:
+        label: "Libellé du statut"
+        members_count: "Membres"

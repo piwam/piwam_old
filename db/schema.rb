@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101000005) do
+ActiveRecord::Schema.define(version: 20150101000006) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "label",      limit: 255,                null: false
     t.string   "reference",  limit: 255,                null: false
-    t.boolean  "active",     limit: 1,   default: true
+    t.boolean  "active",     limit: 1,   default: true, null: false
     t.integer  "created_by", limit: 4
     t.integer  "updated_by", limit: 4
     t.datetime "created_at",                            null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20150101000005) do
     t.date     "expires_on",                                                             null: false
     t.decimal  "amount",                          precision: 5, scale: 2,                null: false
     t.integer  "contributions_count", limit: 4,                           default: 0,    null: false
-    t.boolean  "active",              limit: 1,                           default: true
+    t.boolean  "active",              limit: 1,                           default: true, null: false
     t.integer  "created_by",          limit: 4
     t.integer  "updated_by",          limit: 4
     t.datetime "created_at",                                                             null: false
@@ -72,12 +72,14 @@ ActiveRecord::Schema.define(version: 20150101000005) do
     t.string   "mobile_number",           limit: 255
     t.float    "latitude",                limit: 24
     t.float    "longitude",               limit: 24
-    t.boolean  "active",                  limit: 1,   default: true
+    t.boolean  "active",                  limit: 1,   default: true,  null: false
     t.integer  "created_by",              limit: 4
     t.integer  "updated_by",              limit: 4
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
   end
+
+  add_index "members", ["status_id"], name: "index_members_on_status_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",        limit: 255,   null: false
@@ -90,7 +92,18 @@ ActiveRecord::Schema.define(version: 20150101000005) do
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
+  create_table "statuses", force: :cascade do |t|
+    t.string   "label",         limit: 255,                null: false
+    t.integer  "members_count", limit: 4,   default: 0,    null: false
+    t.boolean  "active",        limit: 1,   default: true, null: false
+    t.integer  "created_by",    limit: 4
+    t.integer  "updated_by",    limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+  end
+
   add_foreign_key "contributions", "accounts"
   add_foreign_key "contributions", "contribution_types"
   add_foreign_key "contributions", "members"
+  add_foreign_key "members", "statuses"
 end
