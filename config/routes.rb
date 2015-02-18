@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :contributions
+
   # Setup
   get  'setup', to: 'setup#new'
   post 'setup', to: 'setup#create'
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
 
   # Contributions
   resources :contribution_types, except: :show
+  resources :contributions, except: :show
   
   # Members
   resources :members do

@@ -85,8 +85,9 @@
     <h2>Liste des cotisations</h2>
     <div class="panel">
       <div class="panel-body">
-        Cotisation annuelle 2015 versée le 2015-01-21<br>
-        Cotisation annuelle 2015 versée le 2015-01-23
+        <% @member.contributions.each do |contribution| %>
+          <%= contribution.contribution_type.label %> versée le <%= l contribution.date %><br>
+        <% end %>
       </div>
     </div>
   </div>

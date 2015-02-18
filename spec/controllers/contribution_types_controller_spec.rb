@@ -44,7 +44,7 @@ describe ContributionTypesController do
         expect(assigns(:contribution_type)).to be_persisted
       end
 
-      it "redirects to the created contribution_types list" do
+      it "redirects to the contribution_types list" do
         post :create, {:contribution_type => valid_attributes}, valid_session
         expect(response).to redirect_to(contribution_types_url)
       end

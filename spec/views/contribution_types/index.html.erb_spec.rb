@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "contribution_types/index", type: :view do
+describe "contribution_types/index" do
   before(:each) do
     assign(:contribution_types, [
       FactoryGirl.create(:contribution_type, label: 'Cotisation annuelle 2015', amount: 10.00),

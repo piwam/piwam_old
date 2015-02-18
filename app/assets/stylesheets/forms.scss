@@ -38,7 +38,8 @@ textarea {
   
   input[type="text"],
   input[type="password"],
-  textarea {
+  textarea,
+  select {
     border-color: #c00;
   }
 }

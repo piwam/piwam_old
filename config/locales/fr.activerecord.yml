@@ -2,12 +2,20 @@ fr:
   activerecord:
     models:
       account: "Compte"
+      contribution: "Cotisation"
+      contribution_type: "Type de cotisation"
       member: "Membre"
 
     attributes:
       account:
         label: "Libellé"
         reference: "Référence"
+      contribution:
+        account_id: "Compte bénéficiaire"
+        contribution_type: "Type"
+        amount: "Montant"
+        date: "Date de versement"
+        member_id: "Membre"
       contribution_type:
         amount: "Montant"
         expires_on: "Expire le"

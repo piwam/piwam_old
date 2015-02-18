@@ -1,0 +1,33 @@
+<%= form_for @contribution do |f| %>
+  <%= render 'application/error_messages', target: @contribution %>
+
+  <table class="table" style="width:520px;">
+    <tr>
+      <th width="165"><%= f.label :account_id %></th>
+      <td><%= f.collection_select :account_id, Account.all, :id, :reference, include_blank: true %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :contribution_type_id %></th>
+      <td><%= f.collection_select :contribution_type_id, ContributionType.all, :id, :label, include_blank: true %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :amount %></th>
+      <td><%= f.text_field :amount, style: 'width:90px' %> <%= t 'number.currency.format.unit' %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :member_id %></th>
+      <td><%= f.collection_select :member_id, Member.order(:first_name), :id, :to_s, include_blank: true %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :date %></th>
+      <td><%= f.text_field :date, style: 'width:150px' %></td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <%= link_to 'Annuler', contributions_path, class: 'btn-action' %>
+        <%= link_to 'Supprimer', @contribution, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: 'btn-action' unless @contribution.new_record? %>
+        <%= f.submit 'Sauvegarder', class: 'btn-submit' %>
+      </td>
+    </tr>
+  </table>
+<% end %>

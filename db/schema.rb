@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101000004) do
+ActiveRecord::Schema.define(version: 20150101000005) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "label",      limit: 255,                null: false
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20150101000004) do
     t.datetime "created_at",                                                             null: false
     t.datetime "updated_at",                                                             null: false
   end
+
+  create_table "contributions", force: :cascade do |t|
+    t.integer  "account_id",           limit: 4,                         null: false
+    t.integer  "contribution_type_id", limit: 4,                         null: false
+    t.integer  "member_id",            limit: 4,                         null: false
+    t.date     "date",                                                   null: false
+    t.decimal  "amount",                         precision: 5, scale: 2, null: false
+    t.integer  "created_by",           limit: 4
+    t.integer  "updated_by",           limit: 4
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+  end
+
+  add_index "contributions", ["account_id"], name: "index_contributions_on_account_id", using: :btree
+  add_index "contributions", ["contribution_type_id"], name: "index_contributions_on_contribution_type_id", using: :btree
+  add_index "contributions", ["member_id"], name: "index_contributions_on_member_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "last_name",               limit: 255,                 null: false
@@ -74,4 +90,7 @@ ActiveRecord::Schema.define(version: 20150101000004) do
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
+  add_foreign_key "contributions", "accounts"
+  add_foreign_key "contributions", "contribution_types"
+  add_foreign_key "contributions", "members"
 end

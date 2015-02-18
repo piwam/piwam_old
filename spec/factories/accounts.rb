@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :account do
-    label     'Caisse de monnaie'
-    reference 'CAISSE_MONNAIE'
+    label 'Compte bancaire'
+    sequence(:reference) { |n| "CB#{n}" }
   end
 end
