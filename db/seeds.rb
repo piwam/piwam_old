@@ -7,6 +7,9 @@ Status.create([
   { label: "Membre d'honneur" }
 ])
 
+# Activities
+Activity.create(label: "Fonctionnement général de l'association")
+
 # Members
 FactoryGirl.create(:member, email: "demo@example.com", password: "password")
 

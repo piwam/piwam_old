@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   # Accounts
   resources :accounts
 
+  # Activities
+  resources :activities
+
   # Contributions
   resources :contributions, except: :show
 
