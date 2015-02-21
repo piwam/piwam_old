@@ -12,6 +12,17 @@ describe MembersController do
       get :index, {}, valid_session
       expect(assigns(:members)).to eq([current_member])
     end
+
+    it "redirects to the login page in not authenticated" do
+      member = Member.create! valid_attributes
+      get :index
+      expect(response).to redirect_to(login_url)
+    end
+
+    it "redirects to the setup page if there is no members" do
+      get :index
+      expect(response).to redirect_to(setup_url)
+    end
   end
 
   describe "GET show" do
@@ -134,6 +145,20 @@ describe MembersController do
       member = Member.create! valid_attributes
       delete :destroy, {:id => member.to_param}, valid_session
       expect(response).to redirect_to(members_url)
+    end
+  end
+
+  describe "GET faces" do
+    it "assigns all members as @members" do
+      get :faces, {}, valid_session
+      expect(assigns(:members)).to eq([current_member])
+    end
+  end
+
+  describe "GET map" do
+    it "assigns all members as @members" do
+      get :map, {}, valid_session
+      expect(assigns(:members)).to eq([])
     end
   end
 

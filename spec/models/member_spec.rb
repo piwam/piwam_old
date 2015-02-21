@@ -37,4 +37,26 @@ describe Member do
     password = 'loooooooooonnnnnnnnnng'
     expect(FactoryGirl.build(:member, password: password, password_confirmation: password)).not_to be_valid
   end
+
+  it "returns the member's full name as a string" do
+    member = FactoryGirl.create(:member, first_name: 'John', last_name: 'Doe')
+    expect(member.to_s).to eq('John Doe')
+  end
+
+  describe "#address" do
+    let(:member) { FactoryGirl.create(:member, street: '1 Infinite Loop', postal_code: '95014', city: 'Cupertino', country: 'US') }
+
+    it "returns the full address" do
+      expect(member.address).to eq('1 Infinite Loop 95014 Cupertino États-Unis')
+    end
+  end
+
+  describe "#country_name" do
+    let(:member) { FactoryGirl.create(:member, country: 'FR') }
+
+    it "returns the countryname as a string" do
+      expect(member.country_name).to eq('France')
+    end
+  end
+
 end
