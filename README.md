@@ -5,7 +5,7 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/piwam/piwam.svg)](https://codeclimate.com/github/piwam/piwam)
 [![Coveralls](https://img.shields.io/coveralls/piwam/piwam/master.svg)](https://coveralls.io/r/piwam/piwam)
 
-Gestionnaire d'association en Ruby on Rails.
+Piwam Is a Wonderful Association Manager.
 
 
 ### Qu'est-ce que c'est ?
