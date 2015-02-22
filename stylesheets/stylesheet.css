@@ -499,7 +499,7 @@ header h2 {
 
 aside#sidebar {
   float: right;
-  width: 200px;
+  width: 180px;
   min-height: 504px;
   padding-left: 20px;
   font-size: 12px;
@@ -530,9 +530,12 @@ a.button small {
   display: block;
   font-size: 11px;
 }
+header h1 img {
+  vertical-align: middle;
+}
 header a.button {
   position: absolute;
-  top: 0;
+  top: 30px;
   right: 0;
   background: transparent url(../images/github-button.png) 0 0 no-repeat;
 }
