@@ -73,7 +73,7 @@ GEM
       currencies (~> 0.4.2)
     country_select (2.1.1)
       countries (>= 0.9.3, < 0.10.0)
-    coveralls (0.7.10)
+    coveralls (0.7.11)
       multi_json (~> 1.10)
       rest-client (>= 1.6.8, < 2)
       simplecov (~> 0.9.1)
