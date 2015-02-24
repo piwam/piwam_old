@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
 
-  # Authentication
-  get  'login',  to: 'sessions#new'
-  post 'login',  to: 'sessions#create'
-  get  'logout', to: 'sessions#destroy'
+  # Accounting
+  get 'accounting', to: 'accounting#index'
 
   # Accounts
   resources :accounts
 
   # Activities
   resources :activities
+
+  # Authentication
+  get  'login',  to: 'sessions#new'
+  post 'login',  to: 'sessions#create'
+  get  'logout', to: 'sessions#destroy'
 
   # Contributions
   resources :contributions, except: :show

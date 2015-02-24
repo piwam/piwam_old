@@ -1,0 +1,77 @@
+<h2>Bilan</h2>
+
+<h3>Par compte</h3>
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Compte</th>
+    <th width="75">Dépenses</th>
+    <th width="75">Recettes</th>
+    <th width="70">Bilan</th>
+  </tr>
+  <% Account.all.each do |account| %>
+    <tr class="success <%= 'danger' if account.expenses.sum(:amount) > account.incomes.sum(:amount) %>">
+      <td><%= account.reference %></td>
+      <td><%= number_with_precision account.expenses.sum(:amount), precision: 2, delimiter: ' ' %></td>
+      <td><%= number_with_precision account.incomes.sum(:amount), precision: 2, delimiter: ' ' %></td>
+      <td><%= number_with_precision account.incomes.sum(:amount) - account.expenses.sum(:amount), precision: 2, delimiter: ' ' %></td>
+    </tr>
+  <% end %>
+  <tr class="success <%= 'danger' if Expense.sum(:amount) > Income.sum(:amount) %>">
+    <td><strong>TOTAL</strong></td>
+    <td><%= number_to_currency Expense.sum(:amount) %></td>
+    <td><%= number_to_currency Income.sum(:amount) %></td>
+    <td><%= number_to_currency Income.sum(:amount) - Expense.sum(:amount) %></td>
+  </tr>
+</table>
+
+<h3>Par activité</h3>
+<table class="table table-bordered table-hover">
+  <tr>
+    <th>Activité</th>
+    <th width="75">Dépenses</th>
+    <th width="75">Recettes</th>
+    <th width="70">Bilan</th>
+  </tr>
+  <tr class="success">
+    <td><%= link_to 'Cotisations', contributions_path, class: 'block' %></td>
+    <td>0,00</td>
+    <td><%= number_with_precision Contribution.sum(:amount), precision: 2, delimiter: ' ' %></td>
+    <td><%= number_with_precision Contribution.sum(:amount), precision: 2, delimiter: ' ' %></td>
+  </tr>
+  <% Activity.all.each do |activity| %>
+    <tr class="success <%= 'danger' if activity.expenses.paid.sum(:amount) > activity.incomes.received.sum(:amount) %>">
+      <td><%= link_to activity.label, activity, class: 'block' %></td>
+      <td><%= number_with_precision activity.expenses.paid.sum(:amount), precision: 2, delimiter: ' ' %></td>
+      <td><%= number_with_precision activity.incomes.received.sum(:amount), precision: 2, delimiter: ' ' %></td>
+      <td><%= number_with_precision activity.incomes.received.sum(:amount) - activity.expenses.paid.sum(:amount), precision: 2, delimiter: ' ' %></td>
+    </tr>
+  <% end %>
+  <tr class="success <%= 'danger' if Expense.paid.sum(:amount) > Income.received.sum(:amount) %>">
+    <td><strong>TOTAL</strong></td>
+    <td><%= number_to_currency Expense.paid.sum(:amount) %></td>
+    <td><%= number_to_currency Income.received.sum(:amount) %></td>
+    <td><%= number_to_currency Income.received.sum(:amount) - Expense.paid.sum(:amount) %></td>
+  </tr>
+</table>
+
+<h3>Créances et dettes</h3>
+<table class="table table-bordered table-hover">
+  <tr class="success">
+    <td>Créances</td>
+    <td width="75">-</td>
+    <td width="75">1 000,00</td>
+    <td width="70">-</td>
+  </tr>
+  <tr class="danger">
+    <td>Dettes</td>
+    <td>500,00</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr class="success">
+    <td><strong>TOTAL</strong></td>
+    <td></td>
+    <td></td>
+    <td>500,00 &euro;</td>
+  </tr>
+</table>
