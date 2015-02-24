@@ -10,4 +10,6 @@ class Expense < ActiveRecord::Base
   validates_presence_of :label, :amount, :account_id, :activity_id, :date
   validates :amount, numericality: { greater_than: 0 }
 
+  scope :paid, -> { where(paid: true) }
+
 end

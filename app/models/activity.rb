@@ -2,6 +2,8 @@ class Activity < ActiveRecord::Base
 
   nilify_blanks
 
+  has_many :incomes
+  has_many :expenses
   belongs_to :creator, class_name: 'Member', foreign_key: 'created_by'
   belongs_to :updater, class_name: 'Member', foreign_key: 'updated_by'
 

@@ -22,7 +22,8 @@
     }
   }
 
-  tbody > tr > td {
+  tbody > tr > td,
+  tfoot > tr > td {
     font-size: 12px;
     color: #162027;
     padding: 1px 5px;
@@ -40,11 +41,13 @@
   width: 90%;
   border: 1px solid #000;
 
+  thead > tr > th,
   tbody > tr > th {
     background-color: #000;
     color: #fff;
     text-align: center;
     padding: 0;
+    border: none;
     a {
       color: #fff;
       &:hover {
@@ -53,7 +56,8 @@
     }
   }
 
-  tbody > tr > td {
+  tbody > tr > td,
+  tfoot > tr > td {
     font-size: 11px;
   }
 }
@@ -74,24 +78,43 @@
   }
 }
 
+.table-sorter {
+  thead > tr > th {
+    cursor: pointer;
+  }
+}
+
 .table > tbody > tr > td.success,
-.table > tbody > tr.success > td {
+.table > tfoot > tr > td.success,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td {
   background-color: #c2fcc3;
 }
 .table > tbody > tr > td.warning,
-.table > tbody > tr.warning > td {
+.table > tfoot > tr > td.warning,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td {
   background-color: #e6e0d1;
 }
 .table > tbody > tr > td.danger,
-.table > tbody > tr.danger > td {
+.table > tfoot > tr > td.danger,
+.table > tbody > tr.danger > td,
+.table > tfoot > tr.danger > td {
   background-color: #eecebe;
 }
 .table-hover > tbody > tr:hover,
+.table-hover > tfoot > tr:hover,
 .table-hover > tbody > tr:hover > td.success,
+.table-hover > tfoot > tr:hover > td.success,
 .table-hover > tbody > tr:hover > td.warning,
+.table-hover > tfoot > tr:hover > td.warning,
 .table-hover > tbody > tr:hover > td.danger,
+.table-hover > tfoot > tr:hover > td.danger,
 .table-hover > tbody > tr.success:hover > td,
+.table-hover > tfoot > tr.success:hover > td,
 .table-hover > tbody > tr.warning:hover > td,
-.table-hover > tbody > tr.danger:hover > td {
+.table-hover > tfoot > tr.warning:hover > td,
+.table-hover > tbody > tr.danger:hover > td,
+.table-hover > tfoot > tr.danger:hover > td {
   background-color: #e8fd98;
 }
