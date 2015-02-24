@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   # Expenses
   resources :expenses
 
+  # Exports
+  get 'exports', to: 'exports#index'
+
   # Incomes
   resources :incomes
   

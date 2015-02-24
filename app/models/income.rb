@@ -1,4 +1,5 @@
 class Income < ActiveRecord::Base
+  include Exportable
 
   nilify_blanks
 

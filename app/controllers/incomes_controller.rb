@@ -2,8 +2,13 @@ class IncomesController < ApplicationController
   before_action :set_income, only: [:show, :edit, :update, :destroy]
 
   def index
-    @incomes = Income.includes(:account, :activity)
-    @incomes = @incomes.page(params[:page]).per(Setting.items_per_page)
+    respond_to do |format|
+      format.html {
+        @incomes = Income.includes(:account, :activity)
+        @incomes = @incomes.page(params[:page]).per(Setting.items_per_page)
+      }
+      format.csv { send_data Income.to_csv }
+    end
   end
 
   def show

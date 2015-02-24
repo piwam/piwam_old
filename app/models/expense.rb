@@ -1,4 +1,5 @@
 class Expense < ActiveRecord::Base
+  include Exportable
 
   nilify_blanks
 

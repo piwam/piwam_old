@@ -1,4 +1,5 @@
 class Member < ActiveRecord::Base
+  include Exportable
 
   has_secure_password validations: false
   nilify_blanks

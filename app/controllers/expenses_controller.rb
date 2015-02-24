@@ -2,8 +2,13 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
   def index
-    @expenses = Expense.includes(:account, :activity)
-    @expenses = @expenses.page(params[:page]).per(Setting.items_per_page)
+    respond_to do |format|
+      format.html {
+        @expenses = Expense.includes(:account, :activity)
+        @expenses = @expenses.page(params[:page]).per(Setting.items_per_page)
+      }
+      format.csv { send_data Expense.to_csv }
+    end
   end
 
   def show

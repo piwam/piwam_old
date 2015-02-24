@@ -2,8 +2,13 @@ class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   def index
-    @q = Member.ransack(params[:q])
-    @members = @q.result.page(params[:page]).per(Setting.items_per_page)
+    respond_to do |format|
+      format.html {
+        @q = Member.ransack(params[:q])
+        @members = @q.result.page(params[:page]).per(Setting.items_per_page)
+      }
+      format.csv { send_data Member.to_csv }
+    end
   end
 
   def show
