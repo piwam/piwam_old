@@ -23,7 +23,7 @@
   </tr>
   <tr>
     <th>Effective le :</th>
-    <td><%= l @income.date %></td>
+    <td><%= @income.received ? l(@income.date) : 'Non perçue' %></td>
   </tr>
   <tr>
     <th><%= image_tag 'time.png' %> Créé le :</th>

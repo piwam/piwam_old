@@ -1,5 +1,5 @@
-<%= form_for @income do |f| %>
-  <%= render 'application/error_messages', target: @income %>
+<%= form_for @expense do |f| %>
+  <%= render 'application/error_messages', target: @expense %>
 
   <table class="table" style="width:500px">
     <tr>
@@ -23,13 +23,13 @@
       <td><%= f.text_field :date, style: 'width:150px' %></td>
     </tr>
     <tr>
-      <th><%= f.label :received %></th>
-      <td><%= f.check_box :received %></td>
+      <th><%= f.label :paid %></th>
+      <td><%= f.check_box :paid %></td>
     </tr>
     <tr>
       <td colspan="2">
-        <%= link_to 'Annuler', incomes_path, class: 'btn-action' %>
-        <%= link_to 'Supprimer', @income, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: 'btn-action' unless @income.new_record? %>
+        <%= link_to 'Annuler', expenses_path, class: 'btn-action' %>
+        <%= link_to 'Supprimer', @expense, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: 'btn-action' unless @expense.new_record? %>
         <%= f.submit 'Sauvegarder', class: 'btn-submit' %>
       </td>
     </tr>

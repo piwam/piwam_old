@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   # Contribution types
   resources :contribution_types, except: :show
 
+  # Expenses
+  resources :expenses
+
   # Incomes
   resources :incomes
   
