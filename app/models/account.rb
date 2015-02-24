@@ -9,4 +9,8 @@ class Account < ActiveRecord::Base
   validates_presence_of :label, :reference
   validates_uniqueness_of :reference
 
+  def to_s
+    reference
+  end
+
 end

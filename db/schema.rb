@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101000007) do
+ActiveRecord::Schema.define(version: 20150101000008) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "label",      limit: 255,                null: false
@@ -59,6 +59,22 @@ ActiveRecord::Schema.define(version: 20150101000007) do
   add_index "contributions", ["account_id"], name: "index_contributions_on_account_id", using: :btree
   add_index "contributions", ["contribution_type_id"], name: "index_contributions_on_contribution_type_id", using: :btree
   add_index "contributions", ["member_id"], name: "index_contributions_on_member_id", using: :btree
+
+  create_table "incomes", force: :cascade do |t|
+    t.string   "label",       limit: 255,                               null: false
+    t.decimal  "amount",                  precision: 10,                null: false
+    t.integer  "account_id",  limit: 4,                                 null: false
+    t.integer  "activity_id", limit: 4,                                 null: false
+    t.date     "date",                                                  null: false
+    t.boolean  "received",    limit: 1,                  default: true, null: false
+    t.integer  "created_by",  limit: 4
+    t.integer  "updated_by",  limit: 4
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+  end
+
+  add_index "incomes", ["account_id"], name: "index_incomes_on_account_id", using: :btree
+  add_index "incomes", ["activity_id"], name: "index_incomes_on_activity_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "last_name",               limit: 255,                 null: false
@@ -114,5 +130,7 @@ ActiveRecord::Schema.define(version: 20150101000007) do
   add_foreign_key "contributions", "accounts"
   add_foreign_key "contributions", "contribution_types"
   add_foreign_key "contributions", "members"
+  add_foreign_key "incomes", "accounts"
+  add_foreign_key "incomes", "activities"
   add_foreign_key "members", "statuses"
 end

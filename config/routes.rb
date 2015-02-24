@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  # Setup
-  get  'setup', to: 'setup#new'
-  post 'setup', to: 'setup#create'
-
   # Authentication
   get  'login',  to: 'sessions#new'
   post 'login',  to: 'sessions#create'
@@ -20,6 +16,9 @@ Rails.application.routes.draw do
 
   # Contribution types
   resources :contribution_types, except: :show
+
+  # Incomes
+  resources :incomes
   
   # Members
   resources :members do
@@ -33,6 +32,10 @@ Rails.application.routes.draw do
   get  'association', to: 'settings#association'
   get  'settings',    to: 'settings#index'
   post 'settings',    to: 'settings#update'
+
+  # Setup
+  get  'setup', to: 'setup#new'
+  post 'setup', to: 'setup#create'
 
   # Statuses
   resources :statuses, except: :show

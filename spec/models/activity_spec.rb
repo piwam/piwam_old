@@ -13,4 +13,9 @@ describe Activity do
     activity = FactoryGirl.create(:activity, label: "Fonctionnement général de l'association")
     expect(FactoryGirl.build(:activity, label: "Fonctionnement général de l'association")).not_to be_valid
   end
+
+  it "returns the label of the activity as a string" do
+    activity = FactoryGirl.create(:activity, label: 'Divers')
+    expect(activity.to_s).to eq('Divers')
+  end
 end

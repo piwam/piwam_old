@@ -4,6 +4,7 @@ fr:
       account: "Compte"
       contribution: "Cotisation"
       contribution_type: "Type de cotisation"
+      income: "Recette"
       member: "Membre"
       status: "Statut"
 
@@ -21,6 +22,13 @@ fr:
         amount: "Montant"
         expires_on: "Expire le"
         label: "Libellé"
+      income:
+        account_id: "Compte affecté"
+        activity_id: "Activité"
+        amount: "Montant"
+        date: "Date"
+        label: "Libellé"
+        received: "Perçue"
       member:
         city: "Ville"
         country: "Pays"

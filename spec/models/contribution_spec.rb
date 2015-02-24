@@ -24,4 +24,8 @@ describe Contribution do
   it "is invalid without an amount" do
     expect(FactoryGirl.build(:contribution, amount: nil)).not_to be_valid
   end
+
+  it "is invalid with a negative amount" do
+    expect(FactoryGirl.build(:contribution, amount: -1)).not_to be_valid
+  end
 end

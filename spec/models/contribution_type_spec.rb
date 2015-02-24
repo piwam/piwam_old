@@ -21,4 +21,8 @@ describe ContributionType do
     contribution_type = FactoryGirl.create(:contribution_type, label: 'Cotisation annuelle 2015')
     expect(FactoryGirl.build(:contribution_type, label: 'Cotisation annuelle 2015')).not_to be_valid
   end
+
+  it "is invalid with a negative amount" do
+    expect(FactoryGirl.build(:contribution_type, amount: -1)).not_to be_valid
+  end
 end

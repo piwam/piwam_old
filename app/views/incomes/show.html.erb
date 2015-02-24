@@ -1,0 +1,39 @@
+<h2>Détails d'une entrée d'argent</h2>
+
+<table class="table table-dotted" style="width:inherit">
+  <tr>
+    <th width="130">Id :</th>
+    <td><%= @income.id %></td>
+  </tr>
+  <tr>
+    <th>Libellé :</th>
+    <td><%= @income.label %></td>
+  </tr>
+  <tr>
+    <th>Montant :</th>
+    <td><%= number_to_currency @income.amount %></td>
+  </tr>
+  <tr>
+    <th>Compte affecté :</th>
+    <td><%= @income.account %></td>
+  </tr>
+  <tr>
+    <th>Activité :</th>
+    <td><%= @income.activity %></td>
+  </tr>
+  <tr>
+    <th>Effective le :</th>
+    <td><%= l @income.date %></td>
+  </tr>
+  <tr>
+    <th><%= image_tag 'time.png' %> Créé le :</th>
+    <td><%= l @income.created_at %> par <%= @income.creator ? link_to(@income.creator, @income.creator) : raw('<i>Système</i>') %></td>
+  </tr>
+  <tr>
+    <th><%= image_tag 'time.png' %> Mise à jour le :</th>
+    <td><%= l @income.updated_at %> par <%= @income.updater ? link_to(@income.updater, @income.updater) : raw('<i>Système</i>') %></td>
+  </tr>
+</table>
+
+<%= link_to 'Éditer', edit_income_path(@income), class: 'btn-action' %>
+<%= link_to 'Retour', incomes_path, class: 'btn-action' %>

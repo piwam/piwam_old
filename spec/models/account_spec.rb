@@ -17,4 +17,9 @@ describe Account do
     account = FactoryGirl.create(:account, reference: 'CAISSE_MONNAIE')
     expect(FactoryGirl.build(:account, reference: 'CAISSE_MONNAIE')).not_to be_valid
   end
+
+  it "returns the reference of the account as a string" do
+    account = FactoryGirl.create(:account, reference: 'CAISSE_MONNAIE')
+    expect(account.to_s).to eq('CAISSE_MONNAIE')
+  end
 end
