@@ -16,7 +16,7 @@
     <th width="80">Actions</th>
   </tr>
   <% @members.each do |member| %>
-    <tr class="<%= 'warning' unless member.contributions.joins(:contribution_type).where('expires_on >= ?', Date.today).exists? %>">
+    <tr class="<%= 'warning' unless member.exempt_of_contributions or member.contributions.joins(:contribution_type).where('expires_on >= ?', Date.today).exists? %>">
       <td><%= member.last_name %></td>
       <td><%= member.first_name %></td>
       <td><%= member.status %></td>
