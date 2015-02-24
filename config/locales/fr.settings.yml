@@ -3,7 +3,6 @@ fr:
     association_name:        "Nom de l'association"
     association_description: "Description"
     association_website:     "Site web"
-    google_map_api_key:      "Clé Google Map"
     items_per_page:          "Elements par page"
     region:                  "Région"
     sender_address:          "Adresse expéditeur"
