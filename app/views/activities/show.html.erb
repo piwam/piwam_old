@@ -27,7 +27,7 @@
       <tr>
         <td><%= income.label %></td>
         <td></td>
-        <td class="success"><%= number_to_currency income.amount %></td>
+        <td class="success"><%= number_with_precision income.amount, precision: 2, delimiter: ' ' %></td>
         <td><%= income.account %></td>
         <td><%= l income.date %></td>
       </tr>
@@ -35,7 +35,7 @@
     <% @activity.expenses.paid.each do |expense| %>
       <tr>
         <td><%= expense.label %></td>
-        <td class="danger"><%= number_to_currency expense.amount %></td>
+        <td class="danger"><%= number_with_precision expense.amount, precision: 2, delimiter: ' ' %></td>
         <td></td>
         <td><%= expense.account %></td>
         <td><%= l expense.date %></td>
