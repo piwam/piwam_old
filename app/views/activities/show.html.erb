@@ -3,11 +3,11 @@
 <table class="table table-dotted" style="width:inherit">
   <tr>
     <th><%= image_tag 'time.png' %> Enregistrée le :</th>
-    <td><%= l @activity.created_at %> par <%= @activity.creator ? link_to(@activity.creator, @activity.creator) : raw('<i>Système</i>') %></td>
+    <td><%= creator(@activity) %></td>
   </tr>
   <tr>
     <th><%= image_tag 'time.png' %> Mise à jour le :</th>
-    <td><%= l @activity.updated_at %> par <%= @activity.updater ? link_to(@activity.updater, @activity.updater) : raw('<i>Système</i>') %></td>
+    <td><%= updater(@activity) %></td>
   </tr>
 </table>
 

@@ -11,11 +11,11 @@
   </tr>
   <tr>
     <th><%= image_tag 'time.png' %> Enregistré le :</th>
-    <td><%= l @account.created_at %> par <%= @account.creator ? link_to(@account.creator, @account.creator) : raw('<i>Système</i>') %></td>
+    <td><%= creator(@account) %></td>
   </tr>
   <tr>
     <th><%= image_tag 'time.png' %> Mise à jour le :</th>
-    <td><%= l @account.updated_at %> par <%= @account.updater ? link_to(@account.updater, @account.updater) : raw('<i>Système</i>') %></td>
+    <td><%= updater(@account) %></td>
   </tr>
 </table>
 

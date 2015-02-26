@@ -27,11 +27,11 @@
   </tr>
   <tr>
     <th><%= image_tag 'time.png' %> Créé le :</th>
-    <td><%= l @expense.created_at %> par <%= @expense.creator ? link_to(@expense.creator, @expense.creator) : raw('<i>Système</i>') %></td>
+    <td><%= creator(@expense) %></td>
   </tr>
   <tr>
     <th><%= image_tag 'time.png' %> Mise à jour le :</th>
-    <td><%= l @expense.updated_at %> par <%= @expense.updater ? link_to(@expense.updater, @expense.updater) : raw('<i>Système</i>') %></td>
+    <td><%= updater(@expense) %></td>
   </tr>
 </table>
 
