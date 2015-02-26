@@ -36,6 +36,9 @@ Rails.application.routes.draw do
       get 'map'
     end
   end
+
+  # Permissions
+  get 'access_denied', to: 'permissions#access_denied'
   
   # Settings
   get  'association', to: 'settings#association'

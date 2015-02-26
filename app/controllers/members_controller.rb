@@ -1,10 +1,10 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     respond_to do |format|
       format.html {
-        @q = Member.ransack(params[:q])
+        @q = Member.includes(:status).ransack(params[:q])
         @members = @q.result.page(params[:page]).per(Setting.items_per_page)
       }
       format.csv { send_data Member.to_csv }
@@ -15,15 +15,12 @@ class MembersController < ApplicationController
   end
 
   def new
-    @member = Member.new
   end
 
   def edit
   end
 
   def create
-    @member = Member.new(member_params.merge(created_by: @current_member.id, updated_by: @current_member.id))
-
     if @member.save
       redirect_to @member
     else
@@ -32,7 +29,7 @@ class MembersController < ApplicationController
   end
 
   def update
-    if @member.update(member_params.merge(updated_by: @current_member.id))
+    if @member.update(update_params)
       redirect_to members_url
     else
       render :edit
@@ -40,17 +37,16 @@ class MembersController < ApplicationController
   end
 
   def destroy
-    session[:member_id] = nil if @member.id == @current_member.id
     @member.destroy
     redirect_to members_url
   end
 
   def faces
-    @members = Member.page(params[:page]).per(Setting.items_per_page)
+    @members = @members.page(params[:page]).per(Setting.items_per_page)
   end
 
   def map
-    @members = Member.geocoded
+    @members = @members.geocoded
     @hash = Gmaps4rails.build_markers(@members) do |member, marker|
       marker.lat member.latitude
       marker.lng member.longitude
@@ -60,8 +56,12 @@ class MembersController < ApplicationController
 
   private
   
-    def set_member
-      @member = Member.find(params[:id])
+    def create_params
+      member_params.merge(created_by: @current_member.id)
+    end
+
+    def update_params
+      member_params.merge(updated_by: @current_member.id)
     end
 
     def member_params

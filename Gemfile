@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bcrypt'
 gem 'bootstrap-sass'
+gem 'cancancan'
 gem 'coffee-rails'
 gem 'country_select'
 gem 'faker'

@@ -1,20 +1,16 @@
 class ContributionTypesController < ApplicationController
-  before_action :set_contribution_type, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
-    @contribution_types = ContributionType.all
   end
 
   def new
-    @contribution_type = ContributionType.new
   end
 
   def edit
   end
 
   def create
-    @contribution_type = ContributionType.new(contribution_type_params.merge(created_by: @current_member.id, updated_by: @current_member.id))
-
     if @contribution_type.save
       redirect_to contribution_types_url
     else
@@ -23,7 +19,7 @@ class ContributionTypesController < ApplicationController
   end
 
   def update
-    if @contribution_type.update(contribution_type_params.merge(updated_by: @current_member.id))
+    if @contribution_type.update(update_params)
       redirect_to contribution_types_url
     else
       render :edit
@@ -37,8 +33,12 @@ class ContributionTypesController < ApplicationController
 
   private
     
-    def set_contribution_type
-      @contribution_type = ContributionType.find(params[:id])
+    def create_params
+      contribution_type_params.merge(created_by: @current_member.id)
+    end
+
+    def update_params
+      contribution_type_params.merge(updated_by: @current_member.id)
     end
 
     def contribution_type_params

@@ -1,21 +1,18 @@
 class ContributionsController < ApplicationController
-  before_action :set_contribution, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
-    @contributions = Contribution.includes(:account, :contribution_type, :member)
+    @contributions = @contributions.includes(:account, :contribution_type, :member)
     @contributions = @contributions.page(params[:page]).per(Setting.items_per_page)
   end
 
   def new
-    @contribution = Contribution.new
   end
 
   def edit
   end
 
   def create
-    @contribution = Contribution.new(contribution_params.merge(created_by: @current_member.id, updated_by: @current_member.id))
-
     if @contribution.save
       redirect_to contributions_url
     else
@@ -24,7 +21,7 @@ class ContributionsController < ApplicationController
   end
 
   def update
-    if @contribution.update(contribution_params.merge(updated_by: @current_member.id))
+    if @contribution.update(update_params)
       redirect_to contributions_url
     else
       render :edit
@@ -38,8 +35,12 @@ class ContributionsController < ApplicationController
 
   private
 
-    def set_contribution
-      @contribution = Contribution.find(params[:id])
+    def create_params
+      contribution_params.merge(created_by: @current_member.id)
+    end
+
+    def update_params
+      contribution_params.merge(updated_by: @current_member.id)
     end
 
     def contribution_params

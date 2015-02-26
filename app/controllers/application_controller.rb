@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     @current_member ||= Member.find(session[:member_id]) if session[:member_id]
   end
 
+  def current_ability
+    @current_ability ||= Ability.new(current_member)
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to access_denied_url
+  end
+
   private
 
     def set_locale

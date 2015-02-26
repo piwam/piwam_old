@@ -1,10 +1,10 @@
 class IncomesController < ApplicationController
-  before_action :set_income, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     respond_to do |format|
       format.html {
-        @incomes = Income.includes(:account, :activity)
+        @incomes = @incomes.includes(:account, :activity)
         @incomes = @incomes.page(params[:page]).per(Setting.items_per_page)
       }
       format.csv { send_data Income.to_csv }
@@ -15,15 +15,12 @@ class IncomesController < ApplicationController
   end
 
   def new
-    @income = Income.new
   end
 
   def edit
   end
 
   def create
-    @income = Income.new(income_params.merge(created_by: @current_member.id, updated_by: @current_member.id))
-
     if @income.save
       redirect_to @income
     else
@@ -32,7 +29,7 @@ class IncomesController < ApplicationController
   end
 
   def update
-    if @income.update(income_params.merge(updated_by: @current_member.id))
+    if @income.update(update_params)
       redirect_to @income
     else
       render :edit
@@ -46,8 +43,12 @@ class IncomesController < ApplicationController
 
   private
     
-    def set_income
-      @income = Income.find(params[:id])
+    def create_params
+      income_params.merge(created_by: @current_member.id)
+    end
+
+    def update_params
+      income_params.merge(updated_by: @current_member.id)
     end
 
     def income_params

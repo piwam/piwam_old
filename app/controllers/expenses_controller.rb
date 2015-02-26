@@ -1,10 +1,10 @@
 class ExpensesController < ApplicationController
-  before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     respond_to do |format|
       format.html {
-        @expenses = Expense.includes(:account, :activity)
+        @expenses = @expenses.includes(:account, :activity)
         @expenses = @expenses.page(params[:page]).per(Setting.items_per_page)
       }
       format.csv { send_data Expense.to_csv }
@@ -15,15 +15,12 @@ class ExpensesController < ApplicationController
   end
 
   def new
-    @expense = Expense.new
   end
 
   def edit
   end
 
   def create
-    @expense = Expense.new(expense_params)
-
     if @expense.save
       redirect_to @expense
     else
@@ -32,7 +29,7 @@ class ExpensesController < ApplicationController
   end
 
   def update
-    if @expense.update(expense_params)
+    if @expense.update(update_params)
       redirect_to @expense
     else
       render :edit
@@ -46,8 +43,12 @@ class ExpensesController < ApplicationController
 
   private
     
-    def set_expense
-      @expense = Expense.find(params[:id])
+    def create_params
+      expense_params.merge(created_by: @current_member.id)
+    end
+
+    def update_params
+      expense_params.merge(updated_by: @current_member.id)
     end
 
     def expense_params

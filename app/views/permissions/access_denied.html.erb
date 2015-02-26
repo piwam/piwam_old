@@ -1,0 +1,2 @@
+<h2>Problème de droits</h2>
+<p>Vous n'avez pas les droits suffisants pour effectuer cette action.</p>

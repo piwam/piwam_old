@@ -3,7 +3,7 @@ require 'rails_helper'
 describe MembersController do
 
   let(:current_member) { FactoryGirl.create(:member) }
-  let(:valid_attributes) { FactoryGirl.attributes_for(:member) }
+  let(:valid_attributes) { { last_name: 'Doe', first_name: 'John', email: 'john@example.com', password: 'password' } }
   let(:invalid_attributes) { { last_name: 'Doe', first_name: nil } }
   let(:valid_session) { { member_id: current_member.id } }
 
@@ -51,10 +51,9 @@ describe MembersController do
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Member" do
-        get :new, {}, valid_session
         expect {
           post :create, {:member => valid_attributes}, valid_session
-        }.to change(Member, :count).by(1)
+        }.to change(Member, :count).by(2) # the other one is the current_member
       end
 
       it "assigns a newly created member as @member" do
@@ -71,7 +70,7 @@ describe MembersController do
       it "saves the creator" do
         post :create, {:member => valid_attributes}, valid_session
         expect(assigns(:member).creator).to eq(current_member)
-        expect(assigns(:member).updater).to eq(current_member)
+        expect(assigns(:member).updater).to be_nil
       end
     end
 
@@ -112,7 +111,8 @@ describe MembersController do
       end
 
       it "saves the updater" do
-        post :create, {:member => valid_attributes}, valid_session
+        member = Member.create! valid_attributes
+        put :update, {:id => member.to_param, :member => valid_attributes}, valid_session
         expect(assigns(:member).updater).to eq(current_member)
       end
     end

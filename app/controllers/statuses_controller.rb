@@ -1,20 +1,16 @@
 class StatusesController < ApplicationController
-  before_action :set_status, only: [:edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
-    @statuses = Status.all
   end
 
   def new
-    @status = Status.new
   end
 
   def edit
   end
 
   def create
-    @status = Status.new(status_params.merge(created_by: @current_member.id, updated_by: @current_member.id))
-
     if @status.save
       redirect_to statuses_url
     else
@@ -23,7 +19,7 @@ class StatusesController < ApplicationController
   end
 
   def update
-    if @status.update(status_params.merge(updated_by: @current_member.id))
+    if @status.update(update_params)
       redirect_to statuses_url
     else
       render :edit
@@ -37,8 +33,12 @@ class StatusesController < ApplicationController
 
   private
     
-    def set_status
-      @status = Status.find(params[:id])
+    def create_params
+      status_params.merge(created_by: @current_member.id)
+    end
+
+    def update_params
+      status_params.merge(updated_by: @current_member.id)
     end
 
     def status_params

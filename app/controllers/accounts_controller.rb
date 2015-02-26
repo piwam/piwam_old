@@ -1,23 +1,19 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
-    @accounts = Account.all
   end
 
   def show
   end
 
   def new
-    @account = Account.new
   end
 
   def edit
   end
 
   def create
-    @account = Account.new(account_params.merge(created_by: @current_member.id, updated_by: @current_member.id))
-
     if @account.save
       redirect_to @account
     else
@@ -26,7 +22,7 @@ class AccountsController < ApplicationController
   end
 
   def update
-    if @account.update(account_params.merge(updated_by: @current_member.id))
+    if @account.update(update_params)
       redirect_to @account
     else
       render :edit
@@ -40,8 +36,12 @@ class AccountsController < ApplicationController
 
   private
   
-    def set_account
-      @account = Account.find(params[:id])
+    def create_params
+      account_params.merge(created_by: @current_member.id)
+    end
+
+    def update_params
+      account_params.merge(updated_by: @current_member.id)
     end
 
     def account_params
