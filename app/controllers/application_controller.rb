@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to access_denied_url
+    render :access_denied
   end
 
   private
