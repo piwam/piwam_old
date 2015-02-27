@@ -1,0 +1,230 @@
+<%= form_tag member_permissions_path(@member) do %>
+  <table class="table" style="width:390px;">
+
+    <!-- Association -->
+    <tbody id="permissions-association">
+      <tr>
+        <td><h3>Association</h3></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-association input[type=checkbox]").prop("checked", !$("#permissions_setting_association").is(":checked")); return false;' %></td>
+      </tr>
+      <tr>
+        <th width="240"><%= label_tag :permissions_setting_association, t('permissions.setting_association') %></th>
+        <td><%= check_box_tag 'permissions[setting][association]', '1', @member.can?(:association, Setting) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_mailing_create, t('permissions.mailings_create') %></th>
+        <td><%= check_box_tag 'permissions[mailing][create]', '1', @member.can?(:create, Mailing) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_export_index, t('permissions.export_index') %></th>
+        <td><%= check_box_tag 'permissions[export][index]', '1', @member.can?(:index, Export) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_accounting_read, t('permissions.accounting_read') %></th>
+        <td><%= check_box_tag 'permissions[accounting][read]', '1', @member.can?(:read, Accounting) %></td>
+      </tr>
+    </tbody>
+
+    <!-- Members -->
+    <tbody id="permissions-members">
+      <tr>
+        <td><h3>Membre</h3></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-members input[type=checkbox]").prop("checked", !$("#permissions_member_create").is(":checked")); return false;' %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_member_create, t('permissions.member_create') %></th>
+        <td><%= check_box_tag 'permissions[member][create]', '1', @member.can?(:create, Member) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_member_update, t('permissions.member_update') %></th>
+        <td><%= check_box_tag 'permissions[member][update]', '1', @member.can?(:update, Member) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_member_delete, t('permissions.member_delete') %></th>
+        <td><%= check_box_tag 'permissions[member][delete]', '1', @member.can?(:delete, Member) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_member_index, t('permissions.member_index') %></th>
+        <td><%= check_box_tag 'permissions[member][index]', '1', @member.can?(:index, Member) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_member_read, t('permissions.member_read') %></th>
+        <td><%= check_box_tag 'permissions[member][read]', '1', @member.can?(:read, Member) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_permission_manage, t('permissions.permission_manage') %></th>
+        <td><%= check_box_tag 'permissions[permission][manage]', '1', @member.can?(:manage, Permission) %></td>
+      </tr>
+    </tbody>
+
+    <!-- Accounts -->
+    <tbody id="permissions-accounts">
+      <tr>
+        <td><h3>Compte</h3></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-accounts input[type=checkbox]").prop("checked", !$("#permissions_account_create").is(":checked")); return false;' %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_account_create, t('permissions.account_create') %></th>
+        <td><%= check_box_tag 'permissions[account][create]', '1', @member.can?(:create, Account) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_account_update, t('permissions.account_update') %></th>
+        <td><%= check_box_tag 'permissions[account][update]', '1', @member.can?(:update, Account) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_account_delete, t('permissions.account_delete') %></th>
+        <td><%= check_box_tag 'permissions[account][delete]', '1', @member.can?(:delete, Account) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_account_index, t('permissions.account_index') %></th>
+        <td><%= check_box_tag 'permissions[account][index]', '1', @member.can?(:index, Account) %></td>
+      </tr>
+    </tbody>
+
+    <!-- Activities -->
+    <tbody id="permissions-activities">
+      <tr>
+        <td><h3>Activité</h3></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-activities input[type=checkbox]").prop("checked", !$("#permissions_activity_create").is(":checked")); return false;' %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_activity_create, t('permissions.activity_create') %></th>
+        <td><%= check_box_tag 'permissions[activity][create]', '1', @member.can?(:create, Activity) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_activity_update, t('permissions.activity_update') %></th>
+        <td><%= check_box_tag 'permissions[activity][update]', '1', @member.can?(:update, Activity) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_activity_delete, t('permissions.activity_delete') %></th>
+        <td><%= check_box_tag 'permissions[activity][delete]', '1', @member.can?(:delete, Activity) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_activity_index, t('permissions.activity_index') %></th>
+        <td><%= check_box_tag 'permissions[activity][index]', '1', @member.can?(:index, Activity) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_activity_read, t('permissions.activity_read') %></th>
+        <td><%= check_box_tag 'permissions[activity][read]', '1', @member.can?(:read, Activity) %></td>
+      </tr>
+    </tbody>
+
+    <!-- Expenses -->
+    <tbody id="permissions-expenses">
+      <tr>
+        <td><h3>Dépense</h3></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-expenses input[type=checkbox]").prop("checked", !$("#permissions_expense_create").is(":checked")); return false;' %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_expense_create, t('permissions.expense_create') %></th>
+        <td><%= check_box_tag 'permissions[expense][create]', '1', @member.can?(:create, Expense) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_expense_update, t('permissions.expense_update') %></th>
+        <td><%= check_box_tag 'permissions[expense][update]', '1', @member.can?(:update, Expense) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_expense_delete, t('permissions.expense_delete') %></th>
+        <td><%= check_box_tag 'permissions[expense][delete]', '1', @member.can?(:delete, Expense) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_expense_index, t('permissions.expense_index') %></th>
+        <td><%= check_box_tag 'permissions[expense][index]', '1', @member.can?(:index, Expense) %></td>
+      </tr>
+    </tbody>
+
+    <!-- Incomes -->
+    <tbody id="permissions-incomes">
+      <tr>
+        <td><h3>Recette</h3></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-incomes input[type=checkbox]").prop("checked", !$("#permissions_income_create").is(":checked")); return false;' %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_income_create, t('permissions.income_create') %></th>
+        <td><%= check_box_tag 'permissions[income][create]', '1', @member.can?(:create, Income) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_income_update, t('permissions.income_update') %></th>
+        <td><%= check_box_tag 'permissions[income][update]', '1', @member.can?(:update, Income) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_income_delete, t('permissions.income_delete') %></th>
+        <td><%= check_box_tag 'permissions[income][delete]', '1', @member.can?(:delete, Income) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_income_index, t('permissions.income_index') %></th>
+        <td><%= check_box_tag 'permissions[income][index]', '1', @member.can?(:index, Income) %></td>
+      </tr>
+    </tbody>
+
+    <!-- Contributions -->
+    <tbody id="permissions-contributions">
+      <tr>
+        <td><h3>Cotisations</h3></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-contributions input[type=checkbox]").prop("checked", !$("#permissions_contribution_create").is(":checked")); return false;' %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_contribution_create, t('permissions.contribution_create') %></th>
+        <td><%= check_box_tag 'permissions[contribution][create]', '1', @member.can?(:create, Contribution) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_contribution_update, t('permissions.contribution_update') %></th>
+        <td><%= check_box_tag 'permissions[contribution][update]', '1', @member.can?(:update, Contribution) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_contribution_delete, t('permissions.contribution_delete') %></th>
+        <td><%= check_box_tag 'permissions[contribution][delete]', '1', @member.can?(:delete, Contribution) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_contribution_index, t('permissions.contribution_index') %></th>
+        <td><%= check_box_tag 'permissions[contribution][index]', '1', @member.can?(:index, Contribution) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_contribution_type_manage, t('permissions.contribution_type_manage') %></th>
+        <td><%= check_box_tag 'permissions[contribution_type][manage]', '1', @member.can?(:manage, ContributionType) %></td>
+      </tr>
+    </tbody>
+
+    <!-- Statuses -->
+    <tbody id="permissions-statuses">
+      <tr>
+        <td><h3>Statuts</h3></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-statuses input[type=checkbox]").prop("checked", !$("#permissions_status_create").is(":checked")); return false;' %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_status_create, t('permissions.status_create') %></th>
+        <td><%= check_box_tag 'permissions[status][create]', '1', @member.can?(:create, Status) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_status_update, t('permissions.status_update') %></th>
+        <td><%= check_box_tag 'permissions[status][update]', '1', @member.can?(:update, Status) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_status_delete, t('permissions.status_delete') %></th>
+        <td><%= check_box_tag 'permissions[status][delete]', '1', @member.can?(:delete, Status) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_status_index, t('permissions.status_index') %></th>
+        <td><%= check_box_tag 'permissions[status][index]', '1', @member.can?(:index, Status) %></td>
+      </tr>
+    </tbody>
+
+    <!-- Piwam -->
+    <tbody id="permissions-piwam">
+      <tr>
+        <td><h3>Piwam</h3></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-piwam input[type=checkbox]").prop("checked", !$("#permissions_setting_index").is(":checked")); return false;' %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_setting_index, t('permissions.setting_index') %></th>
+        <td><%= check_box_tag 'permissions[setting][index]', '1', @member.can?(:index, Setting) %></td>
+      </tr>
+    </tbody>
+
+    <tr>
+      <td colspan="2">
+        <input type="submit" class="btn-submit" value="Sauvegarder">
+      </td>
+    </tr>
+  </table>
+<% end %>

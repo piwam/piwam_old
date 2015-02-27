@@ -11,6 +11,7 @@ FactoryGirl.define do
     country          { Member::COUNTRIES.sample }
     website          { [Faker::Internet.url, nil].sample }
     phone_number     { [Faker::PhoneNumber.phone_number, nil].sample }
-    mobile_number    { [Faker::PhoneNumber.phone_number, nil].sample }    
+    mobile_number    { [Faker::PhoneNumber.phone_number, nil].sample }
+    after(:create)   { |member| member.permissions.create action: 'manage', controller: 'all' }
   end
 end

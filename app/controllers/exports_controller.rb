@@ -1,5 +1,5 @@
 class ExportsController < ApplicationController
-  authorize_resource class: false
+  authorize_resource
 
   def index
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101000009) do
+ActiveRecord::Schema.define(version: 20150101000010) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "label",      limit: 255,                null: false
@@ -122,6 +122,17 @@ ActiveRecord::Schema.define(version: 20150101000009) do
 
   add_index "members", ["status_id"], name: "index_members_on_status_id", using: :btree
 
+  create_table "permissions", force: :cascade do |t|
+    t.integer  "member_id",  limit: 4,   null: false
+    t.string   "action",     limit: 255, null: false
+    t.string   "controller", limit: 255, null: false
+    t.integer  "created_by", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "permissions", ["member_id"], name: "index_permissions_on_member_id", using: :btree
+
   create_table "settings", force: :cascade do |t|
     t.string   "var",        limit: 255,   null: false
     t.text     "value",      limit: 65535
@@ -151,4 +162,5 @@ ActiveRecord::Schema.define(version: 20150101000009) do
   add_foreign_key "incomes", "accounts"
   add_foreign_key "incomes", "activities"
   add_foreign_key "members", "statuses"
+  add_foreign_key "permissions", "members"
 end

@@ -5,6 +5,7 @@ class Member < ActiveRecord::Base
   nilify_blanks
 
   has_many :contributions
+  has_many :permissions
   belongs_to :status, counter_cache: true
   belongs_to :creator, class_name: 'Member', foreign_key: 'created_by'
   belongs_to :updater, class_name: 'Member', foreign_key: 'updated_by'
@@ -31,12 +32,18 @@ class Member < ActiveRecord::Base
     member.validates :password, presence: true
   end
 
+  delegate :can?, :cannot?, to: :ability
+
   scope :authenticatable, -> { where.not(email: nil, password_digest: nil) }
 
   COUNTRIES = %w(BE CH DE ES FR LU NL).freeze
 
   def to_s
     [first_name, last_name].join(' ')
+  end
+
+  def ability
+    @ability ||= Ability.new(self)
   end
 
   def address

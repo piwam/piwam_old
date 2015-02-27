@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   
   # Members
   resources :members do
+    resources :permissions, only: :create
     collection do
       get 'faces'
       get 'map'

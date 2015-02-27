@@ -97,46 +97,15 @@
     <h2>Droits de l'utilisateur <%= link_to image_tag('edit.png'), edit_member_path(@member) %></h2>
     <div class="panel">
       <div class="panel-body">
-        <ul>
-          <li>Éditer et configurer l'association</li>
-          <li>Utiliser l'outil de mailing</li>
-          <li>Utiliser l'outil d'export</li>
-          <li>Voir les bilans</li>
-          <li>Enregistrer une activité</li>
-          <li>Éditer une activité</li>
-          <li>Supprimer une activité</li>
-          <li>Lister les activités</li>
-          <li>Voir les détails d'une activités</li>
-          <li>Enregistrer un membre</li>
-          <li>Éditer un membre</li>
-          <li>Supprimer un membre</li>
-          <li>Lister les membres</li>
-          <li>Afficher les détails d'un membre</li>
-          <li>Ajouter un statut</li>
-          <li>Éditer un statut</li>
-          <li>Supprimer un statut</li>
-          <li>Lister les statuts</li>
-          <li>Enregistrer une cotisation</li>
-          <li>Éditer une cotisation</li>
-          <li>Supprimer une cotisation</li>
-          <li>Lister les cotisations</li>
-          <li>Gérer les types de cotisations</li>
-          <li>Enregistrer un compte</li>
-          <li>Éditer un compte</li>
-          <li>Supprimer un compte</li>
-          <li>Lister les comptes</li>
-          <li>Enregistrer une recette</li>
-          <li>Éditer une recette</li>
-          <li>Supprimer une recette</li>
-          <li>Lister les recettes</li>
-          <li>Enregistrer une dépense</li>
-          <li>Éditer une dépense</li>
-          <li>Supprimer une dépense</li>
-          <li>Lister les dépenses</li>
-          <li>Gérer les droits</li>
-          <li>Mettre à jour Piwam</li>
-          <li>Éditer les préférences</li>
-        </ul>
+        <% if @member.permissions.any? %>
+          <ul>
+            <% @member.permissions.each do |permission| %>
+              <li><%= t "permissions.#{permission.to_s}" %></li>
+            <% end %>
+          </ul>
+        <% else %>
+          <em>Ce membre n'a aucun droit pour le moment.</em>
+        <% end %>
       </div>
     </div>
   </div>

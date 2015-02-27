@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_ability
-    @current_ability ||= Ability.new(current_member)
+    current_member.ability
   end
 
   rescue_from CanCan::AccessDenied do |exception|
