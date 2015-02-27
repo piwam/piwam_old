@@ -85,8 +85,12 @@
     <h2>Liste des cotisations</h2>
     <div class="panel">
       <div class="panel-body">
-        <% @member.contributions.each do |contribution| %>
-          <%= contribution.contribution_type.label %> versée le <%= l contribution.date %><br>
+        <% if @member.contributions.any? %>
+          <% @member.contributions.each do |contribution| %>
+            <%= contribution.contribution_type.label %> versée le <%= l contribution.date %><br>
+          <% end %>
+        <% else %>
+          <em>Aucune cotisation versée par ce membre.</em>
         <% end %>
       </div>
     </div>
