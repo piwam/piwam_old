@@ -8,7 +8,7 @@
     </tr>
     <tr>
       <th><%= f.label :contribution_type_id %></th>
-      <td><%= f.collection_select :contribution_type_id, ContributionType.all, :id, :label, include_blank: true %></td>
+      <td><%= f.select :contribution_type_id, options_for_select(ContributionType.all.map { |c| [c.label, c.id, {'data-amount' => c.amount}] }, @contribution.contribution_type_id), include_blank: true %></td>
     </tr>
     <tr>
       <th><%= f.label :amount %></th>
@@ -31,3 +31,11 @@
     </tr>
   </table>
 <% end %>
+
+<script type="text/javascript">
+$(function() {
+  $('#contribution_contribution_type_id').change(function(e) {
+    $('#contribution_amount').val($('#contribution_contribution_type_id option:selected').data('amount'));
+  });
+});
+</script>
