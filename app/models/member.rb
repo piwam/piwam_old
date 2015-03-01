@@ -47,12 +47,14 @@ class Member < ActiveRecord::Base
   end
 
   def address
-    [street, postal_code, city, country_name].join(' ')
+    [street, postal_code, city, country_name].compact.join(' ')
   end
 
   def country_name
-    c = ISO3166::Country[country]
-    c.translations[I18n.locale.to_s] || c.name
+    if country
+      c = ISO3166::Country[country]
+      c.translations[I18n.locale.to_s] || c.name
+    end
   end
 
   private
