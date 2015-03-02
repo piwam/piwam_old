@@ -10,6 +10,7 @@ class SetupController < ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
+      @member.permissions.create action: 'manage', controller: 'all'
       session[:member_id] = @member.id
       redirect_to association_url
     else
