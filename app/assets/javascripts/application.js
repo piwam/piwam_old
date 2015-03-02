@@ -14,7 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker.fr
 //= require underscore
 //= require gmaps/google
 //= require jquery.tablesorter
 //= require_tree .
+
+
+$(function() {
+  $('.datepicker').datepicker({
+    language: "fr",
+    format: 'dd/mm/yyyy',
+    todayBtn: "linked",
+    autoclose: true
+  });
+});

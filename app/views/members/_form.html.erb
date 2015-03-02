@@ -33,7 +33,7 @@
     </tr>
     <tr>
       <th><%= f.label :registered_on %></th>
-      <td><%= f.text_field :registered_on %></td>
+      <td><%= f.text_field :registered_on, value: @member.registered_on ? l(@member.registered_on) : nil, class: 'datepicker' %></td>
     </tr>
     <tr>
       <th><%= f.label :exempt_of_contributions %></th>

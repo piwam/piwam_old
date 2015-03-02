@@ -8,7 +8,7 @@
     </tr>
     <tr>
       <th><%= f.label :expires_on %>*</th>
-      <td><%= f.text_field :expires_on, style: 'width:150px' %></td>
+      <td><%= f.text_field :expires_on, value: @contribution_type.expires_on ? l(@contribution_type.expires_on) : nil, class: 'datepicker', style: 'width:150px' %></td>
     </tr>
     <tr>
       <th><%= f.label :amount %>*</th>

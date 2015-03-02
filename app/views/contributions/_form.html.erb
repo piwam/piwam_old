@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <th><%= f.label :date %></th>
-      <td><%= f.text_field :date, style: 'width:150px' %></td>
+      <td><%= f.text_field :date, value: @contribution.date ? l(@contribution.date) : nil, class: 'datepicker', style: 'width:150px' %></td>
     </tr>
     <tr>
       <td colspan="2">
