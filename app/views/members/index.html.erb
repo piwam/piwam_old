@@ -25,7 +25,7 @@
         <%= member.email.present? ? mail_to(member.email, image_tag('mail.png')) : image_tag('no_mail.png') %>
         <%= link_to image_tag('edit.png'), edit_member_path(member) %>
         <%= link_to image_tag('details.png'), member %>
-        <%= link_to image_tag('delete.png'), member, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } unless member == @current_member %>
+        <%= link_to image_tag('delete.png'), member, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } unless member == @current_member or member.contributions.any? %>
       </td>
     </tr>
   <% end %>
