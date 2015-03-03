@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   private
 
     def set_locale
-      I18n.locale = Setting.region.downcase || I18n.default_locale
+      I18n.locale = I18n.default_locale
     end
 
     def authenticate_member
