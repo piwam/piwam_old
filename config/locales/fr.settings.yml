@@ -6,3 +6,6 @@ fr:
     items_per_page:          "Elements par page"
     region:                  "Région"
     sender_address:          "Adresse expéditeur"
+    smtp_host:               "SMTP: Serveur"
+    smtp_password:           "SMTP: Mot de passe"
+    smtp_user:               "SMTP: Identifiant"

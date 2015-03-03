@@ -24,10 +24,45 @@
       </td>
     </tr>
     <tr>
+      <th><%= label_tag :smtp_host, t('settings.smtp_host') %></th>
+      <td>
+        <%= text_field_tag 'settings[smtp_host]', Setting.smtp_host, style: 'width: 210px;' %>
+        <%= image_tag 'tooltip_icon.gif', data: { toggle: 'popover', content: "Serveur SMTP utilisé pour l'envoi des emails." } %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= label_tag :smtp_user, t('settings.smtp_user') %></th>
+      <td>
+        <%= text_field_tag 'settings[smtp_user]', Setting.smtp_user, style: 'width: 210px;' %>
+        <%= image_tag 'tooltip_icon.gif', data: { toggle: 'popover', content: 'Identifiant pour se connecter au serveur SMTP.' } %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= label_tag :smtp_password, t('settings.smtp_password') %></th>
+      <td>
+        <%= text_field_tag 'settings[smtp_password]', Setting.smtp_password, style: 'width: 210px;' %>
+        <%= image_tag 'tooltip_icon.gif', data: { toggle: 'popover', content: 'Mot de passe utilisé pour se connecter au serveur SMTP.' } %>
+      </td>
+    </tr>
+    <tr>
       <td></td>
       <td><%= submit_tag 'Sauvegarder', class: 'btn-submit' %></td>
     </tr>
   </table>
+<% end %>
+
+<% if Setting.smtp_host.blank? %>
+  <div class="well">
+    <% if Rails.env.development? %>
+      <strong>Note:</strong> En développement il est inutile de configurer le SMTP car les emails sont intercéptés
+      par <%= link_to 'letter_opener', '/letter_opener', target: '_blank' %>.
+      Si toutefois vous souhaitez tester le SMTP en développement il suffit de suprimer la ligne delivery_method
+      du fichier development.rb.
+    <% else %>
+      <strong>Note:</strong> Vous pouvez utiliser des serveurs SMTP gratuits par exemple avec GMail ou
+      <%= link_to 'Mandrill', 'https://mandrill.com/', target: '_blank' %>.
+    <% end %>
+  </div>
 <% end %>
 
 <script>

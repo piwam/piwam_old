@@ -18,7 +18,7 @@ class SettingsController < ApplicationController
   private
 
     def settings_params
-      params.require(:settings).permit(:items_per_page, :region, :sender_address, :association_name, :association_description, :association_website)
+      params.require(:settings).permit(:items_per_page, :region, :sender_address, :association_name, :association_description, :association_website, :smtp_host, :smtp_user, :smtp_password)
     end
 
 end
