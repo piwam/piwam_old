@@ -1,0 +1,11 @@
+<h2>Mailing</h2>
+
+<% if Setting.sender_address.blank? %>
+  <div class="alert alert-danger">
+    <strong>Attention:</strong><br>
+    Avant de pouvoir envoyer des emails, vous devez définir l'adresse expéditeur
+    dans les <%= link_to 'préférences Piwam', settings_path %>.
+  </div>
+<% end %>
+
+<%= render 'form' %>

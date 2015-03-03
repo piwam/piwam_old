@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150101000010) do
+ActiveRecord::Schema.define(version: 20150101000011) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "label",      limit: 255,                null: false
@@ -91,6 +91,16 @@ ActiveRecord::Schema.define(version: 20150101000010) do
 
   add_index "incomes", ["account_id"], name: "index_incomes_on_account_id", using: :btree
   add_index "incomes", ["activity_id"], name: "index_incomes_on_activity_id", using: :btree
+
+  create_table "mailings", force: :cascade do |t|
+    t.string   "from",       limit: 255,   null: false
+    t.string   "to",         limit: 255,   null: false
+    t.string   "subject",    limit: 255,   null: false
+    t.text     "body",       limit: 65535, null: false
+    t.integer  "created_by", limit: 4
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "members", force: :cascade do |t|
     t.string   "last_name",               limit: 255,                 null: false

@@ -26,6 +26,7 @@ group :development, :test do
   gem 'capybara'
   gem 'coveralls', require: false
   gem 'factory_girl_rails'
+  gem 'letter_opener_web'
   gem 'quiet_assets'
   gem 'rspec-rails'
   gem 'spring'

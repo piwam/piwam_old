@@ -28,6 +28,10 @@ Rails.application.routes.draw do
 
   # Incomes
   resources :incomes
+
+  # Mailings
+  resources :mailings, only: [:new, :create]
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
   
   # Members
   resources :members do

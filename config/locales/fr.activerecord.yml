@@ -6,6 +6,7 @@ fr:
       contribution_type: "Type de cotisation"
       expense: "Dépense"
       income: "Recette"
+      mailing: "Mailing"
       member: "Membre"
       status: "Statut"
 
@@ -37,6 +38,11 @@ fr:
         date: "Date"
         label: "Libellé"
         received: "Perçue"
+      mailing:
+        body: "Message"
+        from: "Adresse expéditeur"
+        subject: "Objet"
+        to: "Destinataires"
       member:
         city: "Ville"
         country: "Pays"

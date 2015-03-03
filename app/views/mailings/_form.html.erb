@@ -1,0 +1,31 @@
+<%= form_for(@mailing) do |f| %>
+  <%= render 'application/error_messages', target: @mailing %>
+
+  <table class="table">
+    <tr>
+      <th width="110"><%= f.label :subject %></th>
+      <td><%= f.text_field :subject %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :to %></th>
+      <td>Tout le monde</td>
+    </tr>
+    <tr>
+      <th><%= f.label :body %></th>
+      <td><%= f.text_area :body, rows: 22 %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><%= f.submit 'Envoyer', class: 'btn-submit' %></td>
+    </tr>
+  </table>
+<% end %>
+
+
+<% if Rails.env.development? %>
+  <div class="well">
+    Vous êtes en environnement de développement.<br>
+    Les emails seront interceptés par <%= link_to 'letter_opener', 'https://github.com/fgrehm/letter_opener_web', target: '_blank' %>
+    et visibles depuis <%= link_to 'cette page', '/letter_opener', target: '_blank' %>.
+  </div>
+<% end %>
