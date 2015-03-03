@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <th><%= f.label :body %></th>
-      <td><%= f.text_area :body, rows: 22 %></td>
+      <td><%= f.text_area :body, rows: 20 %></td>
     </tr>
     <tr>
       <td></td>
@@ -20,3 +20,20 @@
     </tr>
   </table>
 <% end %>
+
+<script type="text/javascript">
+$(function() {
+  $('#mailing_body').trumbowyg({
+    lang: 'fr',
+    fullscreenable: false,
+    btns: [
+      'viewHTML', '|',
+      'bold', 'italic', 'strikethrough', '|',
+      'justifyLeft', 'justifyCenter', 'justifyRight', '|',
+      'link', '|',
+      'insertImage', '|',
+      'horizontalRule'
+    ]
+  });
+});
+</script>

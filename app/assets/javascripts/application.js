@@ -19,6 +19,8 @@
 //= require underscore
 //= require gmaps/google
 //= require jquery.tablesorter
+//= require trumbowyg
+//= require trumbowyg.fr
 //= require_tree .
 
 
