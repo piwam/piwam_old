@@ -26,5 +26,9 @@ class CreateMembers < ActiveRecord::Migration
     end
 
     add_foreign_key :members, :statuses
+    add_foreign_key :members, :members, column: :created_by
+    add_foreign_key :members, :members, column: :updated_by
+    add_foreign_key :statuses, :members, column: :created_by
+    add_foreign_key :statuses, :members, column: :updated_by
   end
 end

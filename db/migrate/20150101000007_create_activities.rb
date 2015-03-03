@@ -8,5 +8,8 @@ class CreateActivities < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_foreign_key :activities, :members, column: :created_by
+    add_foreign_key :activities, :members, column: :updated_by
   end
 end

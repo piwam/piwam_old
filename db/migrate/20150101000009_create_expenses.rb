@@ -15,5 +15,7 @@ class CreateExpenses < ActiveRecord::Migration
 
     add_foreign_key :expenses, :accounts
     add_foreign_key :expenses, :activities
+    add_foreign_key :expenses, :members, column: :created_by
+    add_foreign_key :expenses, :members, column: :updated_by
   end
 end

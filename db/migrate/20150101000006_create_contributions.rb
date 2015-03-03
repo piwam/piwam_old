@@ -15,5 +15,7 @@ class CreateContributions < ActiveRecord::Migration
     add_foreign_key :contributions, :accounts
     add_foreign_key :contributions, :contribution_types
     add_foreign_key :contributions, :members
+    add_foreign_key :contributions, :members, column: :created_by
+    add_foreign_key :contributions, :members, column: :updated_by
   end
 end

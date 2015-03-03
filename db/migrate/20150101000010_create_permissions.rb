@@ -10,5 +10,6 @@ class CreatePermissions < ActiveRecord::Migration
     end
 
     add_foreign_key :permissions, :members
+    add_foreign_key :permissions, :members, column: :created_by
   end
 end

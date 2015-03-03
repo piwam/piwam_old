@@ -9,5 +9,8 @@ class CreateAccounts < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_foreign_key :accounts, :members, column: :created_by
+    add_foreign_key :accounts, :members, column: :updated_by
   end
 end

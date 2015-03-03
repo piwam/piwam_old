@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                            null: false
   end
 
+  add_index "accounts", ["created_by"], name: "fk_rails_916d72abd9", using: :btree
+  add_index "accounts", ["updated_by"], name: "fk_rails_df22d34233", using: :btree
+
   create_table "activities", force: :cascade do |t|
     t.string   "label",      limit: 255,                null: false
     t.boolean  "active",     limit: 1,   default: true, null: false
@@ -31,6 +34,9 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
   end
+
+  add_index "activities", ["created_by"], name: "fk_rails_c009c7e5e8", using: :btree
+  add_index "activities", ["updated_by"], name: "fk_rails_8a6c206560", using: :btree
 
   create_table "contribution_types", force: :cascade do |t|
     t.string   "label",               limit: 255,                                        null: false
@@ -43,6 +49,9 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "created_at",                                                             null: false
     t.datetime "updated_at",                                                             null: false
   end
+
+  add_index "contribution_types", ["created_by"], name: "fk_rails_3f6bec12a7", using: :btree
+  add_index "contribution_types", ["updated_by"], name: "fk_rails_38af433704", using: :btree
 
   create_table "contributions", force: :cascade do |t|
     t.integer  "account_id",           limit: 4,                         null: false
@@ -58,7 +67,9 @@ ActiveRecord::Schema.define(version: 20150101000011) do
 
   add_index "contributions", ["account_id"], name: "index_contributions_on_account_id", using: :btree
   add_index "contributions", ["contribution_type_id"], name: "index_contributions_on_contribution_type_id", using: :btree
+  add_index "contributions", ["created_by"], name: "fk_rails_59ca59a902", using: :btree
   add_index "contributions", ["member_id"], name: "index_contributions_on_member_id", using: :btree
+  add_index "contributions", ["updated_by"], name: "fk_rails_71cdaf3bed", using: :btree
 
   create_table "expenses", force: :cascade do |t|
     t.string   "label",       limit: 255,                               null: false
@@ -75,6 +86,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
 
   add_index "expenses", ["account_id"], name: "index_expenses_on_account_id", using: :btree
   add_index "expenses", ["activity_id"], name: "index_expenses_on_activity_id", using: :btree
+  add_index "expenses", ["created_by"], name: "fk_rails_238e46e46f", using: :btree
+  add_index "expenses", ["updated_by"], name: "fk_rails_f8b098deb5", using: :btree
 
   create_table "incomes", force: :cascade do |t|
     t.string   "label",       limit: 255,                               null: false
@@ -91,6 +104,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
 
   add_index "incomes", ["account_id"], name: "index_incomes_on_account_id", using: :btree
   add_index "incomes", ["activity_id"], name: "index_incomes_on_activity_id", using: :btree
+  add_index "incomes", ["created_by"], name: "fk_rails_47398bf40f", using: :btree
+  add_index "incomes", ["updated_by"], name: "fk_rails_89db1ac34a", using: :btree
 
   create_table "mailings", force: :cascade do |t|
     t.string   "from",       limit: 255,   null: false
@@ -101,6 +116,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  add_index "mailings", ["created_by"], name: "fk_rails_aa914afc1c", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "last_name",               limit: 255,                 null: false
@@ -130,7 +147,9 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                                          null: false
   end
 
+  add_index "members", ["created_by"], name: "fk_rails_e83691087c", using: :btree
   add_index "members", ["status_id"], name: "index_members_on_status_id", using: :btree
+  add_index "members", ["updated_by"], name: "fk_rails_cdf303c06b", using: :btree
 
   create_table "permissions", force: :cascade do |t|
     t.integer  "member_id",  limit: 4,   null: false
@@ -141,6 +160,7 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "permissions", ["created_by"], name: "fk_rails_35b8dab291", using: :btree
   add_index "permissions", ["member_id"], name: "index_permissions_on_member_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
@@ -164,13 +184,34 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                               null: false
   end
 
+  add_index "statuses", ["created_by"], name: "fk_rails_27ca354f35", using: :btree
+  add_index "statuses", ["updated_by"], name: "fk_rails_df9cba04e4", using: :btree
+
+  add_foreign_key "accounts", "members", column: "created_by"
+  add_foreign_key "accounts", "members", column: "updated_by"
+  add_foreign_key "activities", "members", column: "created_by"
+  add_foreign_key "activities", "members", column: "updated_by"
+  add_foreign_key "contribution_types", "members", column: "created_by"
+  add_foreign_key "contribution_types", "members", column: "updated_by"
   add_foreign_key "contributions", "accounts"
   add_foreign_key "contributions", "contribution_types"
   add_foreign_key "contributions", "members"
+  add_foreign_key "contributions", "members", column: "created_by"
+  add_foreign_key "contributions", "members", column: "updated_by"
   add_foreign_key "expenses", "accounts"
   add_foreign_key "expenses", "activities"
+  add_foreign_key "expenses", "members", column: "created_by"
+  add_foreign_key "expenses", "members", column: "updated_by"
   add_foreign_key "incomes", "accounts"
   add_foreign_key "incomes", "activities"
+  add_foreign_key "incomes", "members", column: "created_by"
+  add_foreign_key "incomes", "members", column: "updated_by"
+  add_foreign_key "mailings", "members", column: "created_by"
+  add_foreign_key "members", "members", column: "created_by"
+  add_foreign_key "members", "members", column: "updated_by"
   add_foreign_key "members", "statuses"
   add_foreign_key "permissions", "members"
+  add_foreign_key "permissions", "members", column: "created_by"
+  add_foreign_key "statuses", "members", column: "created_by"
+  add_foreign_key "statuses", "members", column: "updated_by"
 end

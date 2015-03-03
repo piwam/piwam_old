@@ -11,5 +11,8 @@ class CreateContributionTypes < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_foreign_key :contribution_types, :members, column: :created_by
+    add_foreign_key :contribution_types, :members, column: :updated_by
   end
 end

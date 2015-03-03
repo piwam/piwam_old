@@ -9,5 +9,7 @@ class CreateMailings < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_foreign_key :mailings, :members, column: :created_by
   end
 end

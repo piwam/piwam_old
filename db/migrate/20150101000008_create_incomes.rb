@@ -15,5 +15,7 @@ class CreateIncomes < ActiveRecord::Migration
 
     add_foreign_key :incomes, :accounts
     add_foreign_key :incomes, :activities
+    add_foreign_key :incomes, :members, column: :created_by
+    add_foreign_key :incomes, :members, column: :updated_by
   end
 end
