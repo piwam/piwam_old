@@ -5,11 +5,11 @@
     <tbody id="permissions-association">
       <tr>
         <td><h3>Association</h3></td>
-        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-association input[type=checkbox]").prop("checked", !$("#permissions_setting_association").is(":checked")); return false;' %></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-association input[type=checkbox]").prop("checked", !$("#permissions_association_manage").is(":checked")); return false;' %></td>
       </tr>
       <tr>
-        <th width="240"><%= label_tag :permissions_setting_association, t('permissions.setting_association') %></th>
-        <td><%= check_box_tag 'permissions[setting][association]', '1', @member.can?(:association, Setting) %></td>
+        <th width="240"><%= label_tag :permissions_association_manage, t('permissions.association_manage') %></th>
+        <td><%= check_box_tag 'permissions[association][manage]', '1', @member.can?(:manage, Association) %></td>
       </tr>
       <tr>
         <th><%= label_tag :permissions_mailing_create, t('permissions.mailings_create') %></th>
@@ -213,11 +213,11 @@
     <tbody id="permissions-piwam">
       <tr>
         <td><h3>Piwam</h3></td>
-        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-piwam input[type=checkbox]").prop("checked", !$("#permissions_setting_index").is(":checked")); return false;' %></td>
+        <td><%= image_tag 'arrow_down.png' %> <%= link_to 'tout cocher', '#', onclick: '$("#permissions-piwam input[type=checkbox]").prop("checked", !$("#permissions_setting_manage").is(":checked")); return false;' %></td>
       </tr>
       <tr>
-        <th><%= label_tag :permissions_setting_index, t('permissions.setting_index') %></th>
-        <td><%= check_box_tag 'permissions[setting][index]', '1', @member.can?(:index, Setting) %></td>
+        <th><%= label_tag :permissions_setting_manage, t('permissions.setting_manage') %></th>
+        <td><%= check_box_tag 'permissions[setting][manage]', '1', @member.can?(:manage, Setting) %></td>
       </tr>
     </tbody>
 

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   # Activities
   resources :activities
 
+  # Association
+  get 'association',  to: 'association#index'
+  post 'association', to: 'association#update'
+
   # Authentication
   get  'login',  to: 'sessions#new'
   post 'login',  to: 'sessions#create'
@@ -43,9 +47,8 @@ Rails.application.routes.draw do
   end
   
   # Settings
-  get  'association', to: 'settings#association'
-  get  'settings',    to: 'settings#index'
-  post 'settings',    to: 'settings#update'
+  get  'settings', to: 'settings#index'
+  post 'settings', to: 'settings#update'
 
   # Setup
   get  'setup', to: 'setup#new'
