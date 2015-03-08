@@ -52,6 +52,14 @@
         <td><%= check_box_tag 'permissions[member][read]', '1', @member.can?(:read, Member) %></td>
       </tr>
       <tr>
+        <th><%= label_tag :permissions_member_faces, t('permissions.member_faces') %></th>
+        <td><%= check_box_tag 'permissions[member][faces]', '1', @member.can?(:faces, Member) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag :permissions_member_map, t('permissions.member_map') %></th>
+        <td><%= check_box_tag 'permissions[member][map]', '1', @member.can?(:map, Member) %></td>
+      </tr>
+      <tr>
         <th><%= label_tag :permissions_permission_manage, t('permissions.permission_manage') %></th>
         <td><%= check_box_tag 'permissions[permission][manage]', '1', @member.can?(:manage, Permission) %></td>
       </tr>
