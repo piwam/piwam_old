@@ -23,7 +23,7 @@
       <td><%= member.city %></td>
       <td>
         <%= member.email.present? ? mail_to(member.email, image_tag('mail.png')) : image_tag('no_mail.png') %>
-        <%= link_to image_tag('edit.png'), edit_member_path(member) %>
+        <%= link_to image_tag('edit.png'), edit_member_path(member), 'data-no-turbolink' => true %>
         <%= link_to image_tag('details.png'), member %>
         <%= link_to image_tag('delete.png'), member, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } unless member == @current_member or member.contributions.any? %>
       </td>
@@ -40,6 +40,6 @@
   </div>
 </div>
 
-<a href="<%= new_member_path %>" class="btn"><%= image_tag('add.png') %> Enregistrer un membre</a>
+<a href="<%= new_member_path %>" class="btn" data-no-turbolink="true"><%= image_tag('add.png') %> Enregistrer un membre</a>
 
 <%= paginate @members %>

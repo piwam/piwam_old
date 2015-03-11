@@ -16,11 +16,11 @@
       <td><%= expense.paid ? l(expense.date) : 'Non payée' %></td>
       <td>
         <%= link_to image_tag('details.png'), expense %>
-        <%= link_to image_tag('edit.png'), edit_expense_path(expense) %>
+        <%= link_to image_tag('edit.png'), edit_expense_path(expense), 'data-no-turbolink' => true %>
         <%= link_to image_tag('delete.png'), expense, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %>
       </td>
     </tr>
   <% end %>
 </table>
 
-<a href="<%= new_expense_path %>" class="btn"><%= image_tag('add.png') %> Nouvelle dépense</a>
+<a href="<%= new_expense_path %>" class="btn" data-no-turbolink="true"><%= image_tag('add.png') %> Nouvelle dépense</a>

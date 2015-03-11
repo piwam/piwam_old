@@ -17,13 +17,13 @@
       <td><%= contribution.member %></td>
       <td><%= l contribution.date %></td>
       <td>
-        <%= link_to image_tag('edit.png'), edit_contribution_path(contribution) %>
+        <%= link_to image_tag('edit.png'), edit_contribution_path(contribution), 'data-no-turbolink' => true %>
         <%= link_to image_tag('delete.png'), contribution, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %>
       </td>
     </tr>
   <% end %>
 </table>
 
-<a href="<%= new_contribution_path %>" class="btn"><%= image_tag('add.png') %> Enregistrer une cotisation</a>
+<a href="<%= new_contribution_path %>" class="btn" data-no-turbolink="true"><%= image_tag('add.png') %> Enregistrer une cotisation</a>
 
 <%= paginate @contributions %>
