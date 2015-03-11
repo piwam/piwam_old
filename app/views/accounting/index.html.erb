@@ -59,19 +59,19 @@
   <tr class="success">
     <td>Créances</td>
     <td width="75">-</td>
-    <td width="75">1 000,00</td>
+    <td width="75"><%= number_with_precision Income.where(received: false).sum(:amount), precision: 2, delimiter: ' ' %></td>
     <td width="70">-</td>
   </tr>
   <tr class="danger">
     <td>Dettes</td>
-    <td>500,00</td>
+    <td><%= number_with_precision Expense.where(paid: false).sum(:amount), precision: 2, delimiter: ' ' %></td>
     <td>-</td>
     <td>-</td>
   </tr>
-  <tr class="success">
+  <tr class="success <%= 'danger' if Expense.where(paid: false).sum(:amount) > Income.where(received: false).sum(:amount) %>">
     <td><strong>TOTAL</strong></td>
     <td></td>
     <td></td>
-    <td>500,00 &euro;</td>
+    <td><%= number_to_currency Income.where(received: false).sum(:amount) - Expense.where(paid: false).sum(:amount) %></td>
   </tr>
 </table>
