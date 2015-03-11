@@ -17,6 +17,13 @@
       </td>
     </tr>
     <tr>
+      <th><%= label_tag :settings_currency, t('settings.currency') %></th>
+      <td>
+        <%= select_tag 'settings[currency]', options_for_select([['EUR', '€'], ['CHF', 'CHF']], Setting.currency), style: 'width: 70px;' %>
+        <%= image_tag 'tooltip_icon.gif', data: { toggle: 'popover', content: 'Devise qui apparaîtra sur les formulaires et les bilans.' } %>
+      </td>
+    </tr>
+    <tr>
       <th><%= label_tag :settings_sender_address, t('settings.sender_address') %></th>
       <td>
         <%= text_field_tag 'settings[sender_address]', Setting.sender_address, style: 'width: 210px;' %>

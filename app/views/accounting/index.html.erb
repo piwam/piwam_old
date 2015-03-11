@@ -4,9 +4,9 @@
 <table class="table table-bordered table-hover">
   <tr>
     <th>Compte</th>
-    <th width="75">Dépenses</th>
-    <th width="75">Recettes</th>
-    <th width="70">Bilan</th>
+    <th width="80">Dépenses</th>
+    <th width="80">Recettes</th>
+    <th width="75">Bilan</th>
   </tr>
   <% Account.all.each do |account| %>
     <tr class="success <%= 'danger' if account.expenses.sum(:amount) > account.incomes.sum(:amount) %>">
@@ -18,9 +18,9 @@
   <% end %>
   <tr class="success <%= 'danger' if Expense.sum(:amount) > Income.sum(:amount) %>">
     <td><strong>TOTAL</strong></td>
-    <td><%= number_to_currency Expense.sum(:amount) %></td>
-    <td><%= number_to_currency Income.sum(:amount) %></td>
-    <td><%= number_to_currency Income.sum(:amount) - Expense.sum(:amount) %></td>
+    <td><%= number_to_currency Expense.sum(:amount), unit: Setting.currency %></td>
+    <td><%= number_to_currency Income.sum(:amount), unit: Setting.currency %></td>
+    <td><%= number_to_currency Income.sum(:amount) - Expense.sum(:amount), unit: Setting.currency %></td>
   </tr>
 </table>
 
@@ -28,9 +28,9 @@
 <table class="table table-bordered table-hover">
   <tr>
     <th>Activité</th>
-    <th width="75">Dépenses</th>
-    <th width="75">Recettes</th>
-    <th width="70">Bilan</th>
+    <th width="80">Dépenses</th>
+    <th width="80">Recettes</th>
+    <th width="75">Bilan</th>
   </tr>
   <tr class="success">
     <td><%= link_to 'Cotisations', contributions_path, class: 'block' %></td>
@@ -48,9 +48,9 @@
   <% end %>
   <tr class="success <%= 'danger' if Expense.paid.sum(:amount) > Income.received.sum(:amount) %>">
     <td><strong>TOTAL</strong></td>
-    <td><%= number_to_currency Expense.paid.sum(:amount) %></td>
-    <td><%= number_to_currency Income.received.sum(:amount) %></td>
-    <td><%= number_to_currency Income.received.sum(:amount) - Expense.paid.sum(:amount) %></td>
+    <td><%= number_to_currency Expense.paid.sum(:amount), unit: Setting.currency %></td>
+    <td><%= number_to_currency Income.received.sum(:amount), unit: Setting.currency %></td>
+    <td><%= number_to_currency Income.received.sum(:amount) - Expense.paid.sum(:amount), unit: Setting.currency %></td>
   </tr>
 </table>
 
@@ -58,9 +58,9 @@
 <table class="table table-bordered table-hover">
   <tr class="success">
     <td>Créances</td>
+    <td width="80">-</td>
+    <td width="80"><%= number_with_precision Income.where(received: false).sum(:amount), precision: 2, delimiter: ' ' %></td>
     <td width="75">-</td>
-    <td width="75"><%= number_with_precision Income.where(received: false).sum(:amount), precision: 2, delimiter: ' ' %></td>
-    <td width="70">-</td>
   </tr>
   <tr class="danger">
     <td>Dettes</td>
@@ -72,6 +72,6 @@
     <td><strong>TOTAL</strong></td>
     <td></td>
     <td></td>
-    <td><%= number_to_currency Income.where(received: false).sum(:amount) - Expense.where(paid: false).sum(:amount) %></td>
+    <td><%= number_to_currency Income.where(received: false).sum(:amount) - Expense.where(paid: false).sum(:amount), unit: Setting.currency %></td>
   </tr>
 </table>

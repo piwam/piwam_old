@@ -12,7 +12,7 @@ class SettingsController < ApplicationController
   private
 
     def settings_params
-      params.require(:settings).permit(:items_per_page, :region, :sender_address, :smtp_host, :smtp_user, :smtp_password)
+      params.require(:settings).permit(:items_per_page, :region, :currency, :sender_address, :smtp_host, :smtp_user, :smtp_password)
     end
 
 end

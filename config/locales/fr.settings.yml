@@ -4,6 +4,7 @@ fr:
     association_description: "Description"
     association_website:     "Site web"
   settings:
+    currency:                "Devise"
     items_per_page:          "Elements par page"
     region:                  "Région"
     sender_address:          "Adresse expéditeur"

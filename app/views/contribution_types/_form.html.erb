@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <th><%= f.label :amount %>*</th>
-      <td><%= f.text_field :amount, style: 'width:90px' %> <%= t 'number.currency.format.unit' %></td>
+      <td><%= f.text_field :amount, style: 'width:90px' %> <%= Setting.currency %></td>
     </tr>
     <tr>
       <td colspan="2">
