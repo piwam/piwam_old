@@ -1,6 +1,5 @@
 # Piwam
 
-[![Join the chat at https://gitter.im/piwam/piwam](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/piwam/piwam?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Codeship](https://img.shields.io/codeship/6fd598f0-9c0f-0132-825a-42ce92b0d790/master.svg)](https://codeship.com/projects/64274)
 [![Code Climate](https://img.shields.io/codeclimate/github/piwam/piwam.svg)](https://codeclimate.com/github/piwam/piwam)
 [![Coveralls](https://img.shields.io/coveralls/piwam/piwam/master.svg)](https://coveralls.io/r/piwam/piwam)
