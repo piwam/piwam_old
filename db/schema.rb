@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                            null: false
   end
 
-  add_index "accounts", ["created_by"], name: "fk_rails_a63bb70510", using: :btree
-  add_index "accounts", ["updated_by"], name: "fk_rails_767774279c", using: :btree
+  add_index "accounts", ["created_by"], name: "fk_rails_93eb0e4685", using: :btree
+  add_index "accounts", ["updated_by"], name: "fk_rails_8de08ad6fd", using: :btree
 
   create_table "activities", force: :cascade do |t|
     t.string   "label",      limit: 255,                null: false
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                            null: false
   end
 
-  add_index "activities", ["created_by"], name: "fk_rails_bc141f52be", using: :btree
-  add_index "activities", ["updated_by"], name: "fk_rails_35c0184764", using: :btree
+  add_index "activities", ["created_by"], name: "fk_rails_4a637d1b93", using: :btree
+  add_index "activities", ["updated_by"], name: "fk_rails_84e48402bf", using: :btree
 
   create_table "contribution_types", force: :cascade do |t|
     t.string   "label",               limit: 255,                                        null: false
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                                                             null: false
   end
 
-  add_index "contribution_types", ["created_by"], name: "fk_rails_3906160fa1", using: :btree
-  add_index "contribution_types", ["updated_by"], name: "fk_rails_fc942c29e4", using: :btree
+  add_index "contribution_types", ["created_by"], name: "fk_rails_c2c6c51efe", using: :btree
+  add_index "contribution_types", ["updated_by"], name: "fk_rails_3d56f9d26f", using: :btree
 
   create_table "contributions", force: :cascade do |t|
     t.integer  "account_id",           limit: 4,                         null: false
@@ -67,9 +67,9 @@ ActiveRecord::Schema.define(version: 20150101000011) do
 
   add_index "contributions", ["account_id"], name: "index_contributions_on_account_id", using: :btree
   add_index "contributions", ["contribution_type_id"], name: "index_contributions_on_contribution_type_id", using: :btree
-  add_index "contributions", ["created_by"], name: "fk_rails_a47cec16b7", using: :btree
+  add_index "contributions", ["created_by"], name: "fk_rails_06f8cf85c0", using: :btree
   add_index "contributions", ["member_id"], name: "index_contributions_on_member_id", using: :btree
-  add_index "contributions", ["updated_by"], name: "fk_rails_0044e914d9", using: :btree
+  add_index "contributions", ["updated_by"], name: "fk_rails_3ee284972c", using: :btree
 
   create_table "expenses", force: :cascade do |t|
     t.string   "label",       limit: 255,                               null: false
@@ -86,8 +86,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
 
   add_index "expenses", ["account_id"], name: "index_expenses_on_account_id", using: :btree
   add_index "expenses", ["activity_id"], name: "index_expenses_on_activity_id", using: :btree
-  add_index "expenses", ["created_by"], name: "fk_rails_df8929665e", using: :btree
-  add_index "expenses", ["updated_by"], name: "fk_rails_186f854a24", using: :btree
+  add_index "expenses", ["created_by"], name: "fk_rails_33d4dac516", using: :btree
+  add_index "expenses", ["updated_by"], name: "fk_rails_0a658f8eec", using: :btree
 
   create_table "incomes", force: :cascade do |t|
     t.string   "label",       limit: 255,                               null: false
@@ -104,12 +104,12 @@ ActiveRecord::Schema.define(version: 20150101000011) do
 
   add_index "incomes", ["account_id"], name: "index_incomes_on_account_id", using: :btree
   add_index "incomes", ["activity_id"], name: "index_incomes_on_activity_id", using: :btree
-  add_index "incomes", ["created_by"], name: "fk_rails_9a27a3c2b6", using: :btree
-  add_index "incomes", ["updated_by"], name: "fk_rails_4c9c0935f6", using: :btree
+  add_index "incomes", ["created_by"], name: "fk_rails_801d975689", using: :btree
+  add_index "incomes", ["updated_by"], name: "fk_rails_5dd97c9693", using: :btree
 
   create_table "mailings", force: :cascade do |t|
     t.string   "from",       limit: 255,   null: false
-    t.string   "to",         limit: 255,   null: false
+    t.text     "to",         limit: 65535, null: false
     t.string   "subject",    limit: 255,   null: false
     t.text     "body",       limit: 65535, null: false
     t.integer  "created_by", limit: 4
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",               null: false
   end
 
-  add_index "mailings", ["created_by"], name: "fk_rails_da6d6d8c5b", using: :btree
+  add_index "mailings", ["created_by"], name: "fk_rails_d04bb899bf", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "last_name",               limit: 255,                 null: false
@@ -147,9 +147,9 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                                          null: false
   end
 
-  add_index "members", ["created_by"], name: "fk_rails_56e01f1bb3", using: :btree
+  add_index "members", ["created_by"], name: "fk_rails_599d4e9ce7", using: :btree
   add_index "members", ["status_id"], name: "index_members_on_status_id", using: :btree
-  add_index "members", ["updated_by"], name: "fk_rails_47e4153de1", using: :btree
+  add_index "members", ["updated_by"], name: "fk_rails_20aa3b9816", using: :btree
 
   create_table "permissions", force: :cascade do |t|
     t.integer  "member_id",  limit: 4,   null: false
@@ -160,7 +160,7 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "permissions", ["created_by"], name: "fk_rails_ab7f7d9747", using: :btree
+  add_index "permissions", ["created_by"], name: "fk_rails_3e60d42641", using: :btree
   add_index "permissions", ["member_id"], name: "index_permissions_on_member_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
@@ -184,8 +184,8 @@ ActiveRecord::Schema.define(version: 20150101000011) do
     t.datetime "updated_at",                               null: false
   end
 
-  add_index "statuses", ["created_by"], name: "fk_rails_2eaced9e39", using: :btree
-  add_index "statuses", ["updated_by"], name: "fk_rails_11cc7eda14", using: :btree
+  add_index "statuses", ["created_by"], name: "fk_rails_9f464e7971", using: :btree
+  add_index "statuses", ["updated_by"], name: "fk_rails_005977f948", using: :btree
 
   add_foreign_key "accounts", "members", column: "created_by"
   add_foreign_key "accounts", "members", column: "updated_by"
