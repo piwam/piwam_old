@@ -145,6 +145,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
+    pg (0.18.2)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     quiet_assets (1.1.0)
@@ -275,6 +276,7 @@ DEPENDENCIES
   mysql2
   nilify_blanks
   paperclip
+  pg
   quiet_assets
   rails (= 4.2.3)
   rails-settings-cached

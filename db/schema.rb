@@ -13,160 +13,143 @@
 
 ActiveRecord::Schema.define(version: 20150101000011) do
 
-  create_table "accounts", force: :cascade do |t|
-    t.string   "label",      limit: 255,                null: false
-    t.string   "reference",  limit: 255,                null: false
-    t.boolean  "active",     limit: 1,   default: true, null: false
-    t.integer  "created_by", limit: 4
-    t.integer  "updated_by", limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-  end
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
-  add_index "accounts", ["created_by"], name: "fk_rails_93eb0e4685", using: :btree
-  add_index "accounts", ["updated_by"], name: "fk_rails_8de08ad6fd", using: :btree
+  create_table "accounts", force: :cascade do |t|
+    t.string   "label",                     null: false
+    t.string   "reference",                 null: false
+    t.boolean  "active",     default: true, null: false
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "activities", force: :cascade do |t|
-    t.string   "label",      limit: 255,                null: false
-    t.boolean  "active",     limit: 1,   default: true, null: false
-    t.integer  "created_by", limit: 4
-    t.integer  "updated_by", limit: 4
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "label",                     null: false
+    t.boolean  "active",     default: true, null: false
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
-
-  add_index "activities", ["created_by"], name: "fk_rails_4a637d1b93", using: :btree
-  add_index "activities", ["updated_by"], name: "fk_rails_84e48402bf", using: :btree
 
   create_table "contribution_types", force: :cascade do |t|
-    t.string   "label",               limit: 255,                                        null: false
-    t.date     "expires_on",                                                             null: false
-    t.decimal  "amount",                          precision: 5, scale: 2,                null: false
-    t.integer  "contributions_count", limit: 4,                           default: 0,    null: false
-    t.boolean  "active",              limit: 1,                           default: true, null: false
-    t.integer  "created_by",          limit: 4
-    t.integer  "updated_by",          limit: 4
-    t.datetime "created_at",                                                             null: false
-    t.datetime "updated_at",                                                             null: false
+    t.string   "label",                                                      null: false
+    t.date     "expires_on",                                                 null: false
+    t.decimal  "amount",              precision: 5, scale: 2,                null: false
+    t.integer  "contributions_count",                         default: 0,    null: false
+    t.boolean  "active",                                      default: true, null: false
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
   end
 
-  add_index "contribution_types", ["created_by"], name: "fk_rails_c2c6c51efe", using: :btree
-  add_index "contribution_types", ["updated_by"], name: "fk_rails_3d56f9d26f", using: :btree
-
   create_table "contributions", force: :cascade do |t|
-    t.integer  "account_id",           limit: 4,                         null: false
-    t.integer  "contribution_type_id", limit: 4,                         null: false
-    t.integer  "member_id",            limit: 4,                         null: false
-    t.date     "date",                                                   null: false
-    t.decimal  "amount",                         precision: 5, scale: 2, null: false
-    t.integer  "created_by",           limit: 4
-    t.integer  "updated_by",           limit: 4
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
+    t.integer  "account_id",                                   null: false
+    t.integer  "contribution_type_id",                         null: false
+    t.integer  "member_id",                                    null: false
+    t.date     "date",                                         null: false
+    t.decimal  "amount",               precision: 5, scale: 2, null: false
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   add_index "contributions", ["account_id"], name: "index_contributions_on_account_id", using: :btree
   add_index "contributions", ["contribution_type_id"], name: "index_contributions_on_contribution_type_id", using: :btree
-  add_index "contributions", ["created_by"], name: "fk_rails_06f8cf85c0", using: :btree
   add_index "contributions", ["member_id"], name: "index_contributions_on_member_id", using: :btree
-  add_index "contributions", ["updated_by"], name: "fk_rails_3ee284972c", using: :btree
 
   create_table "expenses", force: :cascade do |t|
-    t.string   "label",       limit: 255,                               null: false
-    t.decimal  "amount",                  precision: 10,                null: false
-    t.integer  "account_id",  limit: 4,                                 null: false
-    t.integer  "activity_id", limit: 4,                                 null: false
-    t.date     "date",                                                  null: false
-    t.boolean  "paid",        limit: 1,                  default: true, null: false
-    t.integer  "created_by",  limit: 4
-    t.integer  "updated_by",  limit: 4
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
+    t.string   "label",                      null: false
+    t.decimal  "amount",                     null: false
+    t.integer  "account_id",                 null: false
+    t.integer  "activity_id",                null: false
+    t.date     "date",                       null: false
+    t.boolean  "paid",        default: true, null: false
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "expenses", ["account_id"], name: "index_expenses_on_account_id", using: :btree
   add_index "expenses", ["activity_id"], name: "index_expenses_on_activity_id", using: :btree
-  add_index "expenses", ["created_by"], name: "fk_rails_33d4dac516", using: :btree
-  add_index "expenses", ["updated_by"], name: "fk_rails_0a658f8eec", using: :btree
 
   create_table "incomes", force: :cascade do |t|
-    t.string   "label",       limit: 255,                               null: false
-    t.decimal  "amount",                  precision: 10,                null: false
-    t.integer  "account_id",  limit: 4,                                 null: false
-    t.integer  "activity_id", limit: 4,                                 null: false
-    t.date     "date",                                                  null: false
-    t.boolean  "received",    limit: 1,                  default: true, null: false
-    t.integer  "created_by",  limit: 4
-    t.integer  "updated_by",  limit: 4
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
+    t.string   "label",                      null: false
+    t.decimal  "amount",                     null: false
+    t.integer  "account_id",                 null: false
+    t.integer  "activity_id",                null: false
+    t.date     "date",                       null: false
+    t.boolean  "received",    default: true, null: false
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "incomes", ["account_id"], name: "index_incomes_on_account_id", using: :btree
   add_index "incomes", ["activity_id"], name: "index_incomes_on_activity_id", using: :btree
-  add_index "incomes", ["created_by"], name: "fk_rails_801d975689", using: :btree
-  add_index "incomes", ["updated_by"], name: "fk_rails_5dd97c9693", using: :btree
 
   create_table "mailings", force: :cascade do |t|
-    t.string   "from",       limit: 255,   null: false
-    t.text     "to",         limit: 65535, null: false
-    t.string   "subject",    limit: 255,   null: false
-    t.text     "body",       limit: 65535, null: false
-    t.integer  "created_by", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "from",       null: false
+    t.text     "to",         null: false
+    t.string   "subject",    null: false
+    t.text     "body",       null: false
+    t.integer  "created_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "mailings", ["created_by"], name: "fk_rails_d04bb899bf", using: :btree
 
   create_table "members", force: :cascade do |t|
-    t.string   "last_name",               limit: 255,                 null: false
-    t.string   "first_name",              limit: 255,                 null: false
-    t.string   "email",                   limit: 255
-    t.string   "password_digest",         limit: 255
-    t.integer  "status_id",               limit: 4
-    t.string   "photo_file_name",         limit: 255
-    t.string   "photo_content_type",      limit: 255
-    t.integer  "photo_file_size",         limit: 4
+    t.string   "last_name",                               null: false
+    t.string   "first_name",                              null: false
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "status_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.date     "registered_on"
-    t.boolean  "exempt_of_contributions", limit: 1,   default: false
-    t.string   "street",                  limit: 255
-    t.string   "postal_code",             limit: 255
-    t.string   "city",                    limit: 255
-    t.string   "country",                 limit: 255
-    t.string   "website",                 limit: 255
-    t.string   "phone_number",            limit: 255
-    t.string   "mobile_number",           limit: 255
-    t.float    "latitude",                limit: 24
-    t.float    "longitude",               limit: 24
-    t.boolean  "active",                  limit: 1,   default: true,  null: false
-    t.integer  "created_by",              limit: 4
-    t.integer  "updated_by",              limit: 4
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.boolean  "exempt_of_contributions", default: false
+    t.string   "street"
+    t.string   "postal_code"
+    t.string   "city"
+    t.string   "country"
+    t.string   "website"
+    t.string   "phone_number"
+    t.string   "mobile_number"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "active",                  default: true,  null: false
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
-  add_index "members", ["created_by"], name: "fk_rails_599d4e9ce7", using: :btree
   add_index "members", ["status_id"], name: "index_members_on_status_id", using: :btree
-  add_index "members", ["updated_by"], name: "fk_rails_20aa3b9816", using: :btree
 
   create_table "permissions", force: :cascade do |t|
-    t.integer  "member_id",  limit: 4,   null: false
-    t.string   "action",     limit: 255, null: false
-    t.string   "controller", limit: 255, null: false
-    t.integer  "created_by", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "member_id",  null: false
+    t.string   "action",     null: false
+    t.string   "controller", null: false
+    t.integer  "created_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "permissions", ["created_by"], name: "fk_rails_3e60d42641", using: :btree
   add_index "permissions", ["member_id"], name: "index_permissions_on_member_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
-    t.string   "var",        limit: 255,   null: false
-    t.text     "value",      limit: 65535
-    t.integer  "thing_id",   limit: 4
+    t.string   "var",                   null: false
+    t.text     "value"
+    t.integer  "thing_id"
     t.string   "thing_type", limit: 30
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -175,17 +158,14 @@ ActiveRecord::Schema.define(version: 20150101000011) do
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
   create_table "statuses", force: :cascade do |t|
-    t.string   "label",         limit: 255,                null: false
-    t.integer  "members_count", limit: 4,   default: 0,    null: false
-    t.boolean  "active",        limit: 1,   default: true, null: false
-    t.integer  "created_by",    limit: 4
-    t.integer  "updated_by",    limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.string   "label",                        null: false
+    t.integer  "members_count", default: 0,    null: false
+    t.boolean  "active",        default: true, null: false
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
-
-  add_index "statuses", ["created_by"], name: "fk_rails_9f464e7971", using: :btree
-  add_index "statuses", ["updated_by"], name: "fk_rails_005977f948", using: :btree
 
   add_foreign_key "accounts", "members", column: "created_by"
   add_foreign_key "accounts", "members", column: "updated_by"
