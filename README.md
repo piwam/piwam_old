@@ -33,4 +33,4 @@ rake db:setup
 rails s
 ```
 
-Requiert Ruby 2.2.0 ou supérieur et MySQL.
+Requiert Ruby 2.2.0 ou supérieur et PostgreSQL.
