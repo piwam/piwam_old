@@ -136,8 +136,8 @@
         <td><%= check_box_tag 'permissions[expense][destroy]', '1', @member.can?(:destroy, Expense) %></td>
       </tr>
       <tr>
-        <th><%= label_tag :permissions_expense_index, t('permissions.expense_index') %></th>
-        <td><%= check_box_tag 'permissions[expense][index]', '1', @member.can?(:index, Expense) %></td>
+        <th><%= label_tag :permissions_expense_read, t('permissions.expense_read') %></th>
+        <td><%= check_box_tag 'permissions[expense][read]', '1', @member.can?(:read, Expense) %></td>
       </tr>
     </tbody>
 
@@ -160,8 +160,8 @@
         <td><%= check_box_tag 'permissions[income][delete]', '1', @member.can?(:delete, Income) %></td>
       </tr>
       <tr>
-        <th><%= label_tag :permissions_income_index, t('permissions.income_index') %></th>
-        <td><%= check_box_tag 'permissions[income][index]', '1', @member.can?(:index, Income) %></td>
+        <th><%= label_tag :permissions_income_read, t('permissions.income_read') %></th>
+        <td><%= check_box_tag 'permissions[income][read]', '1', @member.can?(:read, Income) %></td>
       </tr>
     </tbody>
 
