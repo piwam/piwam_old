@@ -2,7 +2,7 @@ fr:
   permissions:
     account_create: "Enregistrer un compte"
     account_delete: "Supprimer un compte"
-    account_index: "Lister les comptes"
+    account_read: "Voir les comptes"
     account_update: "Éditer un compte"
     accounting_read: "Voir les bilans"
     activity_create: "Enregistrer une activité"

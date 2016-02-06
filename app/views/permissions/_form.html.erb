@@ -84,8 +84,8 @@
         <td><%= check_box_tag 'permissions[account][delete]', '1', @member.can?(:delete, Account) %></td>
       </tr>
       <tr>
-        <th><%= label_tag :permissions_account_index, t('permissions.account_index') %></th>
-        <td><%= check_box_tag 'permissions[account][index]', '1', @member.can?(:index, Account) %></td>
+        <th><%= label_tag :permissions_account_read, t('permissions.account_read') %></th>
+        <td><%= check_box_tag 'permissions[account][read]', '1', @member.can?(:read, Account) %></td>
       </tr>
     </tbody>
 
