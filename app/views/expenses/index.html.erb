@@ -9,7 +9,7 @@
     <th>Date</th>
     <th>Actions</th>
   </tr>
-  <% @expenses.each do |expense| %>
+  <% @expenses.order(date: :desc).each do |expense| %>
     <tr>
       <td><%= expense.label %></td>
       <td><%= expense.activity %></td>
