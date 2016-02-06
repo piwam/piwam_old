@@ -133,7 +133,7 @@
       </tr>
       <tr>
         <th><%= label_tag :permissions_expense_delete, t('permissions.expense_delete') %></th>
-        <td><%= check_box_tag 'permissions[expense][delete]', '1', @member.can?(:delete, Expense) %></td>
+        <td><%= check_box_tag 'permissions[expense][destroy]', '1', @member.can?(:destroy, Expense) %></td>
       </tr>
       <tr>
         <th><%= label_tag :permissions_expense_index, t('permissions.expense_index') %></th>
