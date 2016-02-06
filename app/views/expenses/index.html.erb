@@ -3,6 +3,7 @@
 <table class="table table-bordered table-hover container">
   <tr>
     <th>Libellé</th>
+    <th>Activité</th>
     <th>Montant</th>
     <th>Compte</th>
     <th>Date</th>
@@ -11,6 +12,7 @@
   <% @expenses.each do |expense| %>
     <tr>
       <td><%= expense.label %></td>
+      <td><%= expense.activity %></td>
       <td><%= number_to_currency expense.amount %></td>
       <td><%= expense.account %></td>
       <td><%= expense.paid ? l(expense.date) : 'Non payée' %></td>
