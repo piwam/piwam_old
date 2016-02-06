@@ -24,3 +24,5 @@
 </table>
 
 <a href="<%= new_expense_path %>" class="btn" data-no-turbolink="true"><%= image_tag('add.png') %> Nouvelle dépense</a>
+
+<%= paginate @expenses %>
