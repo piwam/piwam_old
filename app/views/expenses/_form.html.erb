@@ -29,7 +29,7 @@
     <tr>
       <td colspan="2">
         <%= link_to 'Annuler', expenses_path, class: 'btn-action' %>
-        <%= link_to 'Supprimer', @expense, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: 'btn-action' unless @expense.new_record? %>
+        <%= link_to 'Supprimer', @expense, method: :delete, data: { confirm: 'Êtes-vous sûr ?' }, class: 'btn-action' unless (@expense.new_record? or cannot? :destroy, @expense)%>
         <%= f.submit 'Sauvegarder', class: 'btn-submit' %>
       </td>
     </tr>

@@ -17,9 +17,9 @@
       <td><%= expense.account %></td>
       <td><%= expense.paid ? l(expense.date) : 'Non payée' %></td>
       <td>
-        <%= link_to image_tag('details.png'), expense %>
-        <%= link_to image_tag('edit.png'), edit_expense_path(expense), 'data-no-turbolink' => true %>
-        <%= link_to image_tag('delete.png'), expense, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %>
+        <%= link_to image_tag('details.png'), expense if can? :show, expense %>
+        <%= link_to image_tag('edit.png'), edit_expense_path(expense), 'data-no-turbolink' => true if can? :update, expense %>
+        <%= link_to image_tag('delete.png'), expense, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } if can? :destroy, expense %>
       </td>
     </tr>
   <% end %>
