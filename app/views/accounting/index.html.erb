@@ -12,15 +12,15 @@
     <tr class="success <%= 'danger' if account.expenses.sum(:amount) > account.incomes.sum(:amount) %>">
       <td><%= account.reference %></td>
       <td><%= number_with_precision account.expenses.sum(:amount), precision: 2, delimiter: ' ' %></td>
-      <td><%= number_with_precision account.incomes.sum(:amount), precision: 2, delimiter: ' ' %></td>
-      <td><%= number_with_precision account.incomes.sum(:amount) - account.expenses.sum(:amount), precision: 2, delimiter: ' ' %></td>
+      <td><%= number_with_precision account.contributions.sum(:amount) + account.incomes.sum(:amount), precision: 2, delimiter: ' ' %></td>
+      <td><%= number_with_precision account.contributions.sum(:amount) + account.incomes.sum(:amount) - account.expenses.sum(:amount), precision: 2, delimiter: ' ' %></td>
     </tr>
   <% end %>
   <tr class="success <%= 'danger' if Expense.sum(:amount) > Income.sum(:amount) %>">
     <td><strong>TOTAL</strong></td>
     <td><%= number_to_currency Expense.sum(:amount), unit: Setting.currency %></td>
-    <td><%= number_to_currency Income.sum(:amount), unit: Setting.currency %></td>
-    <td><%= number_to_currency Income.sum(:amount) - Expense.sum(:amount), unit: Setting.currency %></td>
+    <td><%= number_to_currency Contribution.sum(:amount) + Income.sum(:amount), unit: Setting.currency %></td>
+    <td><%= number_to_currency Contribution.sum(:amount) + Income.sum(:amount) - Expense.sum(:amount), unit: Setting.currency %></td>
   </tr>
 </table>
 
@@ -49,8 +49,8 @@
   <tr class="success <%= 'danger' if Expense.paid.sum(:amount) > Income.received.sum(:amount) %>">
     <td><strong>TOTAL</strong></td>
     <td><%= number_to_currency Expense.paid.sum(:amount), unit: Setting.currency %></td>
-    <td><%= number_to_currency Income.received.sum(:amount), unit: Setting.currency %></td>
-    <td><%= number_to_currency Income.received.sum(:amount) - Expense.paid.sum(:amount), unit: Setting.currency %></td>
+    <td><%= number_to_currency Contribution.sum(:amount) + Income.received.sum(:amount), unit: Setting.currency %></td>
+    <td><%= number_to_currency Contribution.sum(:amount) + Income.received.sum(:amount) - Expense.paid.sum(:amount), unit: Setting.currency %></td>
   </tr>
 </table>
 
