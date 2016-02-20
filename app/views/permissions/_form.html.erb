@@ -41,7 +41,7 @@
       </tr>
       <tr>
         <th><%= label_tag :permissions_member_delete, t('permissions.member_delete') %></th>
-        <td><%= check_box_tag 'permissions[member][delete]', '1', @member.can?(:delete, Member) %></td>
+        <td><%= check_box_tag 'permissions[member][destroy]', '1', @member.can?(:destroy, Member) %></td>
       </tr>
       <tr>
         <th><%= label_tag :permissions_member_index, t('permissions.member_index') %></th>
@@ -81,7 +81,7 @@
       </tr>
       <tr>
         <th><%= label_tag :permissions_account_delete, t('permissions.account_delete') %></th>
-        <td><%= check_box_tag 'permissions[account][delete]', '1', @member.can?(:delete, Account) %></td>
+        <td><%= check_box_tag 'permissions[account][destroy]', '1', @member.can?(:destroy, Account) %></td>
       </tr>
       <tr>
         <th><%= label_tag :permissions_account_read, t('permissions.account_read') %></th>
@@ -105,7 +105,7 @@
       </tr>
       <tr>
         <th><%= label_tag :permissions_activity_delete, t('permissions.activity_delete') %></th>
-        <td><%= check_box_tag 'permissions[activity][delete]', '1', @member.can?(:delete, Activity) %></td>
+        <td><%= check_box_tag 'permissions[activity][destroy]', '1', @member.can?(:destroy, Activity) %></td>
       </tr>
       <tr>
         <th><%= label_tag :permissions_activity_index, t('permissions.activity_index') %></th>
@@ -157,7 +157,7 @@
       </tr>
       <tr>
         <th><%= label_tag :permissions_income_delete, t('permissions.income_delete') %></th>
-        <td><%= check_box_tag 'permissions[income][delete]', '1', @member.can?(:delete, Income) %></td>
+        <td><%= check_box_tag 'permissions[income][destroy]', '1', @member.can?(:destroy, Income) %></td>
       </tr>
       <tr>
         <th><%= label_tag :permissions_income_read, t('permissions.income_read') %></th>
@@ -181,7 +181,7 @@
       </tr>
       <tr>
         <th><%= label_tag :permissions_contribution_delete, t('permissions.contribution_delete') %></th>
-        <td><%= check_box_tag 'permissions[contribution][delete]', '1', @member.can?(:delete, Contribution) %></td>
+        <td><%= check_box_tag 'permissions[contribution][destroy]', '1', @member.can?(:destroy, Contribution) %></td>
       </tr>
       <tr>
         <th><%= label_tag :permissions_contribution_index, t('permissions.contribution_index') %></th>
@@ -209,7 +209,7 @@
       </tr>
       <tr>
         <th><%= label_tag :permissions_status_delete, t('permissions.status_delete') %></th>
-        <td><%= check_box_tag 'permissions[status][delete]', '1', @member.can?(:delete, Status) %></td>
+        <td><%= check_box_tag 'permissions[status][destroy]', '1', @member.can?(:destroy, Status) %></td>
       </tr>
       <tr>
         <th><%= label_tag :permissions_status_index, t('permissions.status_index') %></th>
