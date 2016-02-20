@@ -41,7 +41,7 @@
       </tr>
       <tr>
         <th><%= label_tag :permissions_member_delete, t('permissions.member_delete') %></th>
-        <td><%= check_box_tag 'permissions[member][delete]', '1', @member.can?(:delete, Member) %></td>
+        <td><%= check_box_tag 'permissions[member][destroy]', '1', @member.can?(:destroy, Member) %></td>
       </tr>
       <tr>
         <th><%= label_tag :permissions_member_index, t('permissions.member_index') %></th>
