@@ -15,9 +15,9 @@
       <td><%= income.account %></td>
       <td><%= income.received ? l(income.date) : 'Non perçue' %></td>
       <td>
-        <%= link_to image_tag('details.png'), income %>
-        <%= link_to image_tag('edit.png'), edit_income_path(income), 'data-no-turbolink' => true %>
-        <%= link_to image_tag('delete.png'), income, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } %>
+        <%= link_to image_tag('details.png'), income if can? :show, income %>
+        <%= link_to image_tag('edit.png'), edit_income_path(income), 'data-no-turbolink' => true if can? :update, income %>
+        <%= link_to image_tag('delete.png'), income, method: :delete, data: { confirm: 'Êtes-vous sûr ?' } if can? :destroy, income %>
       </td>
     </tr>
   <% end %>
