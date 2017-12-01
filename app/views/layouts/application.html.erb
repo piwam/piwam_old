@@ -2,58 +2,13 @@
 <html>
   <head>
     <title>Piwam</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
   <body>
-    <div class="container">
-      
-      <h1><%= Setting.association_name.present? ? Setting.association_name : 'Piwam' %></h1>
-
-      <div class="row">
-        <div class="col-xs-3">
-
-          <div id="sidebar">
-            <ul class="nav nav-stacked">
-              <li><h4>Configuration</h4></li>
-              <li><%= link_to "A propos de l'association", association_path %></li>
-              <li><%= link_to 'Préférences Piwam', settings_path %></li>
-              <li><h4>Membres</h4></li>
-              <li><%= link_to 'Gestion des membres', members_path %></li>
-              <li><%= link_to 'Situation géographique', map_members_path, 'data-no-turbolink' => true %></li>
-              <li><%= link_to 'Trombinoscope', faces_members_path %></li>
-              <li><%= link_to 'Gérer les statuts', statuses_path %></li>
-              <li><h4>Cotisations</h4></li>
-              <li><%= link_to 'Gérer les cotisations', contributions_path %></li>
-              <li><%= link_to 'Types de cotisation', contribution_types_path %></li>
-              <li><h4>Comptabilité</h4></li>
-              <li><%= link_to 'Gestion des activités', activities_path %></li>
-              <li><%= link_to 'Gestion des comptes', accounts_path %></li>
-              <li><%= link_to 'Gestion des dépenses', expenses_path %></li>
-              <li><%= link_to 'Gestion des recettes', incomes_path %></li>
-              <li><%= link_to 'Voir les bilans', accounting_path %></li>
-              <li><h4>Fonctionnalités</h4></li>
-              <li><%= link_to 'Déconnexion', logout_path %></li>
-              <li><%= link_to 'Exporter les données', exports_path %></li>
-              <li><%= link_to 'Mailing', new_mailing_path %></li>
-              <li><%= link_to 'Rapporter un bug', 'https://github.com/piwam/piwam/issues', target: 'blank' %></li>
-            </ul>
-          </div>
-
-        </div>
-        <div class="col-xs-9">
-
-          <div id="content">
-            <%= render 'notifications' %>
-
-            <%= yield %>
-
-          </div>
-
-        </div>
-      </div>
-
-    </div>
+    <%= yield %>
   </body>
 </html>

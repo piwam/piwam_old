@@ -4,7 +4,7 @@
 [![Code Climate](https://img.shields.io/codeclimate/github/piwam/piwam.svg)](https://codeclimate.com/github/piwam/piwam)
 [![Coveralls](https://img.shields.io/coveralls/piwam/piwam/master.svg)](https://coveralls.io/r/piwam/piwam)
 
-Piwam Is a Wonderful Association Manager.
+**P**iwam **I**s a **W**onderful **A**ssociation **M**anager.
 
 
 ### Qu'est-ce que c'est ?
@@ -13,7 +13,7 @@ Cette application est un portage du projet [Piwam](https://code.google.com/p/piw
 excellent gestionnaire d'association dont le développement a malheureusement été abandonné par
 son créateur. L'application a donc été entièrement ré-écrite en [Ruby on Rails](http://rubyonrails.org).
 
-![Screenshot de l'application](http://piwam.com/images/screenshot.png)
+![Screenshot de l'application](http://piwam.org/images/screenshot.png)
 
 ### Que puis-je gérer avec Piwam ?
 
@@ -33,4 +33,4 @@ rake db:setup
 rails s
 ```
 
-Requiert Ruby 2.2.0 ou supérieur et PostgreSQL.
+Requiert Ruby 2.4 ou supérieur et MySQL.

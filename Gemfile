@@ -1,34 +1,25 @@
 source 'https://rubygems.org'
 
 gem 'bcrypt'
-gem 'bootstrap-sass'
-gem 'cancancan'
 gem 'coffee-rails'
-gem 'country_select'
-gem 'faker'
-gem 'geocoder'
-gem 'gmaps4rails'
-gem 'jbuilder'
-gem 'jquery-rails'
-gem 'kaminari'
-gem 'nilify_blanks'
-gem 'paperclip'
-gem 'pg'
-gem 'rails', '4.2.3'
-gem 'rails-settings-cached'
-gem 'ransack'
+gem 'mysql2'
+gem 'puma'
+gem 'rails', '~> 5.1.4'
 gem 'sass-rails'
 gem 'turbolinks'
 gem 'uglifier'
 
 group :development, :test do
   gem 'byebug'
-  gem 'capybara'
-  gem 'coveralls', require: false
-  gem 'factory_girl_rails'
-  gem 'letter_opener_web'
-  gem 'quiet_assets'
   gem 'rspec-rails'
+end
+
+group :development do
+  gem 'listen'
   gem 'spring'
+  gem 'spring-watcher-listen'
   gem 'web-console'
 end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
