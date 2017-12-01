@@ -2,7 +2,7 @@
 
 [![Codeship Status for piwam/piwam](https://app.codeship.com/projects/f5efc150-b8bf-0135-344c-064e0f24fac0/status?branch=master)](https://app.codeship.com/projects/259073)
 [![Maintainability](https://api.codeclimate.com/v1/badges/158bcda181e7748a5657/maintainability)](https://codeclimate.com/github/piwam/piwam/maintainability)
-[![Coveralls](https://img.shields.io/coveralls/piwam/piwam/master.svg)](https://coveralls.io/r/piwam/piwam)
+[![Coverage Status](https://coveralls.io/repos/github/piwam/piwam/badge.svg)](https://coveralls.io/github/piwam/piwam)
 
 **P**iwam **I**s a **W**onderful **A**ssociation **M**anager.
 
