@@ -56,6 +56,11 @@ GEM
     docile (1.1.5)
     erubi (1.7.0)
     execjs (2.7.0)
+    factory_bot (4.8.2)
+      activesupport (>= 3.0.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
+      railties (>= 3.0.0)
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -182,6 +187,7 @@ DEPENDENCIES
   bcrypt
   byebug
   coffee-rails
+  factory_bot_rails
   listen
   mysql2
   puma

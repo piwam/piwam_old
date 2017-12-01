@@ -3,8 +3,8 @@
 .byebug_history
 /.bundle
 /.idea
-/coverage
 /log/*
 /node_modules
 /tmp/*
 /yarn-error.log
+coverage

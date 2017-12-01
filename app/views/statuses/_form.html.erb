@@ -1,0 +1,27 @@
+<%= form_with(model: status, local: true) do |form| %>
+  <% if status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+
+      <ul>
+      <% status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :label %>
+    <%= form.text_field :label, id: :status_label %>
+  </div>
+
+  <div class="field">
+    <%= form.label :members_count %>
+    <%= form.number_field :members_count, id: :status_members_count %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
