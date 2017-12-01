@@ -1,6 +1,6 @@
 # Piwam
 
-[ ![Codeship Status for piwam/piwam](https://app.codeship.com/projects/93f2b200-b8b5-0135-912d-12fdddb6d0eb/status?branch=master)](https://app.codeship.com/projects/259064)
+[![Codeship Status for piwam/piwam](https://app.codeship.com/projects/f5efc150-b8bf-0135-344c-064e0f24fac0/status?branch=master)](https://app.codeship.com/projects/259073)
 [![Code Climate](https://img.shields.io/codeclimate/github/piwam/piwam.svg)](https://codeclimate.com/github/piwam/piwam)
 [![Coveralls](https://img.shields.io/coveralls/piwam/piwam/master.svg)](https://coveralls.io/r/piwam/piwam)
 
