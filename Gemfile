@@ -11,8 +11,8 @@ gem 'uglifier'
 
 group :development, :test do
   gem 'byebug'
-  gem 'coveralls', require: false
   gem 'rspec-rails'
+  gem 'simplecov', require: false
 end
 
 group :development do
