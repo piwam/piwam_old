@@ -13,7 +13,7 @@ Cette application est un portage du projet [Piwam](https://code.google.com/p/piw
 excellent gestionnaire d'association dont le développement a malheureusement été abandonné par
 son créateur. L'application a donc été entièrement ré-écrite en [Ruby on Rails](http://rubyonrails.org).
 
-![Screenshot de l'application](http://piwam.org/images/screenshot.png)
+![Screenshot de l'application](https://raw.githubusercontent.com/piwam/piwam/gh-pages/images/screenshot.png)
 
 ### Que puis-je gérer avec Piwam ?
 
