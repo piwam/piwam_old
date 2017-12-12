@@ -1,3 +1,7 @@
+> **Important:**  
+> Le projet est actuellement en cours de refonte complète.  
+> Pour tester les fonctionnalités, faire un checkout du tag [v1.0](https://github.com/piwam/piwam/tree/v1.0)
+
 # Piwam
 
 [![Codeship Status for piwam/piwam](https://app.codeship.com/projects/f5efc150-b8bf-0135-344c-064e0f24fac0/status?branch=master)](https://app.codeship.com/projects/259073)
